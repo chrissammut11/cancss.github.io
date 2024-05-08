@@ -16,7 +16,7 @@
 </head>
 <body>
 <!-- Container for Photo -->
-<h1>This is where the photo would be showing</h1>
+<h1>Photo Image will show below here:</h1>
  
 <div class="container" id="photo">
 </div>
@@ -47,8 +47,7 @@
         // Initialize data variables
         vaMessage = messageFromVA;
         vaResult = messageFromVA.resultName;
-        document.getElementById("demo").innerHTML = messageFromVA;
-        console.log("Here is the message recieved from VA : DEEP CHRIS")
+//        console.log("Here is the message recieved from VA : DEEP CHRIS")
         // console.log(messageFromVA)
         // console.log(messageFromVA.data)
         for (let i = 0; i < messageFromVA.rowCount; i++) {
@@ -58,6 +57,7 @@
         // console.log(messageFromVA.data[0][0])
         rowCount = messageFromVA.rowCount;
 
+        document.getElementById("demo").innerHTML = messageFromVA.data[0][0];
  
         // Add photo to DOM
         const photoDiv = document.getElementById("photo");
@@ -86,8 +86,7 @@
 })
  
 </script>
-<h4>This is the value of the json</h4>
+<h4>This is the value that the user selected in the drop down</h4>
 <p id="demo"></p>
-<h5> this is the end of the body tag</h5>
 </body>
 </html>
