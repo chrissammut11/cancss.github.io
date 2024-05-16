@@ -53,10 +53,10 @@ Generic Submit HTML form
       $("#rating span").on("click", (event) => {
         $("#rating span").removeClass("checked")
         const selected = event.currentTarget.id.split("_")[1]
-//        for (let index = 0; index <= selected; index++) {
- //         $("#star_" + index).toggleClass("checked")
- //       }
- //     })
+        for (let index = 0; index <= selected; index++) {
+          $("#star_" + index).toggleClass("checked")
+        }
+      })
       // Add submit event to the form
       $("#submitButton").on("click", (event) => {
         // Block normal processing of submit button
