@@ -82,23 +82,23 @@ Generic Submit HTML form
     }
 
     // Function to generate the rating element
-//    const ratingComponent = (number, divID) => {
-//      const stars = []
-//     for (let index = 0; index < number; index++) {
-//        const star = `<span class="fa fa-star" id="star_${index}"></span>`
-//        stars.push(star)
-//      }
-//      return `
-//                <div id=${divID} class="row m-3">
-//                    <div class="col-2">
-//                        Rating
-//                    </div>
-//                    <div class="col">
-//                        ${stars.join('')}
-//                    </div>
-//                </div>
-//                `
-//    }
+    const ratingComponent = (number, divID) => {
+      const stars = []
+     for (let index = 0; index < number; index++) {
+        const star = `<span class="fa fa-star" id="star_${index}"></span>`
+        stars.push(star)
+      }
+      return `
+                <div id=${divID} class="row m-3">
+                    <div class="col-2">
+                        Rating
+                    </div>
+                    <div class="col">
+                        ${stars.join('')}
+                    </div>
+                </div>
+                `
+    }
 
     va.messagingUtil.setOnDataReceivedCallback(displayForm)
   </script>
