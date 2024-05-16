@@ -44,9 +44,10 @@ Generic Submit HTML form
       // Add a submit button to the form
       formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Save evaluation</button></div>')
       // Add title to the form
-//      formElements.unshift("<h1 class='row m-3 bg-primary p-3'>Evaluation</h1>")
+      formElements.unshift("<h1 class='row m-3 bg-primary p-3'>Evaluation</h1>")
 
       // Generate the form
+
       $("#evaluation").html(formElements.join(""))
       // Add click event to the rating component
       $("#rating span").on("click", (event) => {
