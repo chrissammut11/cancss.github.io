@@ -32,8 +32,8 @@
         const html =
           `
           <div class="row m-3">
-              <label for="${element.name}" class="col-2">${element.label}</label>
-              <input type="text" id="${element.name}" name="${element.label}" value="${message.data[0][index]}" disabled class="col">
+              <label for="${element.name}" class="col-2" hidden>${element.label}</label>
+              <input type="text" id="${element.name}" name="${element.label}" value="${message.data[0][index]}" disabled class="col" hidden>
           </div>
           `
         return html
