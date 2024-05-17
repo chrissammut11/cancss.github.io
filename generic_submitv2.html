@@ -24,19 +24,13 @@
 </style>
 
 <body>
-  <form id="evaluation" class="container" >
-SAS JobName:<input type="text" name="jobname" size="100" id="jobname" />
-
-</form>
+  <form id="evaluation" class="container" ></form>
   <script>
-
 function getValue(id) {
     const text = document.getElementById(id).value; // Get the value of the input
     alert(text); // Show the value (you can replace this with your desired logic)
     return false; // Prevent the form from submitting
 }
-
-const jobtext = getvalue('jobname');
 
     const displayForm = (message) => {
       // Generate the different form elements using the VA data
@@ -50,10 +44,11 @@ const jobtext = getvalue('jobname');
           `
         return html
       })
+
       // Add the ratingComponent to the form
 //      formElements.push(ratingComponent(5, "rating"))
       // Add a submit button to the form
-      formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Perform What-if Scenario (v1)</button></div>')
+formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Perform What-if Scenario (v2)</button></div>')
       // Add title to the form
 //      formElements.unshift("<h1 class='row m-3 bg-primary p-3'>Scenario Testing v4</h1>")
 
