@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-Generic Submit HTML form
 </head>
 <style>
   .checked {
@@ -25,16 +24,27 @@ Generic Submit HTML form
 </style>
 
 <body>
-  <form id="evaluation" class="container"></form>
+  <form id="evaluation" class="container" onsubmit="return getValue('jobname')">
+<input type="text" name="jobname" size="100" id="jobname" />
+
+</form>
   <script>
+
+function getValue(id) {
+    const text = document.getElementById(id).value; // Get the value of the input
+    alert(text); // Show the value (you can replace this with your desired logic)
+    return false; // Prevent the form from submitting
+}
+
+
     const displayForm = (message) => {
       // Generate the different form elements using the VA data
       const formElements = message.columns.map((element, index) => {
         const html =
           `
           <div class="row m-3">
-              <label for="${element.name}" class="col-2">${element.label}</label>
-              <input type="text" id="${element.name}" name="${element.label}" value="${message.data[0][index]}" disabled class="col">
+              <label for="${element.name}" class="col-2" hidden>${element.label}</label>
+              <input type="text" id="${element.name}" name="${element.label}" value="${message.data[0][index]}" disabled class="col" hidden>
           </div>
           `
         return html
@@ -42,12 +52,11 @@ Generic Submit HTML form
       // Add the ratingComponent to the form
 //      formElements.push(ratingComponent(5, "rating"))
       // Add a submit button to the form
-      formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Save evaluation</button></div>')
+      formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Perform What-if Scenario (v0)</button></div>')
       // Add title to the form
-      formElements.unshift("<h1 class='row m-3 bg-primary p-3'>Evaluation</h1>")
+//      formElements.unshift("<h1 class='row m-3 bg-primary p-3'>Scenario Testing v4</h1>")
 
       // Generate the form
-
       $("#evaluation").html(formElements.join(""))
       // Add click event to the rating component
       $("#rating span").on("click", (event) => {
@@ -67,7 +76,7 @@ Generic Submit HTML form
         $("#evaluation input").each((index, element) => {
           data[element.name] = element.value
         })
- //       data["rating"] = $("#rating").find(".checked").length
+        data["rating"] = $("#rating").find(".checked").length
 
         // Call the SAS Viya Job
         const url = "https://canada.viya4.sasdemo.ca"
@@ -84,7 +93,7 @@ Generic Submit HTML form
     // Function to generate the rating element
     const ratingComponent = (number, divID) => {
       const stars = []
-     for (let index = 0; index < number; index++) {
+      for (let index = 0; index < number; index++) {
         const star = `<span class="fa fa-star" id="star_${index}"></span>`
         stars.push(star)
       }
