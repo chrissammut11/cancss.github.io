@@ -35,7 +35,7 @@ function getValue(id) {
     const displayForm = (message) => {
       // Generate the different form elements using the VA data
       console.log("this is what we are looking for")
-      console.log(element.name)
+      console.log(message.data[0][index])
       const formElements = message.columns.map((element, index) => {
         const html =
           `
