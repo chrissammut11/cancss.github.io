@@ -28,16 +28,16 @@ limitations under the License.
 		html,
 		body,
 		#chart_div {
-			width: 50%;
-			height: 50%;
+			width: 100%;
+			height: 100%;
 			margin: 0;
 			padding: 0;
 		}
 
 		#chart_div {
 			position: relative;
-			border-style: none;
-			border-width: 0px;
+			border-style: solid;
+			border-width: 1px;
 			overflow: auto;
 		}
 	</style>
@@ -57,12 +57,14 @@ limitations under the License.
 		var _options = {
 			allowCollapse: true,
 			allowHtml: true,
-			size: 'small', // options: small, medium, large
+			size: 'medium', // options: small, medium, large
 		};
 		var _sampleDataTable = null;
 
 		google.charts.load("current", { packages: ["orgchart"] });
 		google.charts.setOnLoadCallback(onChartLoad);
+        // console.log('Look Here!');
+        // console.log(onChartLoad);
 
 		va.contentUtil.setupResizeListener(drawChart);
 
