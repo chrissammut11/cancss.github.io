@@ -14,14 +14,14 @@
 <script>
 
 var _resultName = null;
-
+const temp = null;
 
 function onDataReceived(resultData) {
     if (!resultData) return;
 
     _resultName = resultData.resultName;
     console.log("LOOK HERE FOR VA DATA" + resultData)
-    const temp = resultData["columns"][1]["label"]
+    temp = '"' + resultData["columns"][1]["label"] + '"'
     console.log("LOOK HERE FOR TEMP VALUE:" + temp)
     const selections = va.contentUtil.initializeSelections(resultData);
 }
@@ -39,6 +39,7 @@ var data_for_graph = [
 function highchartmaker(column_name) {
 
 let cname = temp;
+// 'corruption_index';
 
 Highcharts.chart('container', {
     chart: {
@@ -49,7 +50,7 @@ Highcharts.chart('container', {
         }
     },
     title: {
-        text: 'Beijing 2022 gold medals by country v4',
+        text: 'Beijing 2022 gold medals by country v5',
         align: 'left'
     },
     plotOptions: {
@@ -67,7 +68,7 @@ Highcharts.chart('container', {
 
 document.addEventListener('DOMContentLoaded', function () {
             va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
-            highchartmaker();
+            highchartmaker(temp);
         });
 
 
