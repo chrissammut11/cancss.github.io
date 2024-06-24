@@ -12,34 +12,25 @@
 </figure>
 
 <script>
-
 var _resultName = null;
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
 
 function onDataReceived(resultData) {
     if (!resultData) return;
-const temp = null;
     _resultName = resultData.resultName;
-    console.log("LOOK HERE FOR VA DATA" + resultData)
-    temp = '"' + resultData["columns"][1]["label"] + '"'
+    tempstring = resultData["columns"][1]["label"]
     const selections = va.contentUtil.initializeSelections(resultData);
+    data_temp = resultData["data"]
+    const va_data_merge = []
+    for (let i = 0; i < data_temp.length; i++){
+        va_data_merge.push(resultData["data"][i])
+    }
+    highchartmaker(tempstring, va_data_merge);
 }
-var data_for_graph = [
-            ['Norway', 16],
-            ['Germany', 12],
-            ['USA', 8],
-            ['Sweden', 8],
-            ['Netherlands', 8],
-            ['ROC', 6],
-            ['India', 7],
-            ['Canada', 4],
-            ['Japan', 3]];
 
-function highchartmaker(column_name) {
-
-    console.log("LOOK HERE FOR TEMP VALUE entering highchartmaker function TEMP=:" + temp)
-    console.log("LOOK HERE FOR TEMP VALUE entering highchartmaker function COLUMN_NAME:" + column_name)
-
-
+function highchartmaker(column_name, data_for_graph) {
 Highcharts.chart('container', {
     chart: {
         type: 'pie',
@@ -49,7 +40,7 @@ Highcharts.chart('container', {
         }
     },
     title: {
-        text: 'Beijing 2022 gold medals by country v3',
+        text: '',
         align: 'left'
     },
     plotOptions: {
@@ -58,17 +49,13 @@ Highcharts.chart('container', {
             depth: 45
         }
     },
+    credits: {
+    enabled: false
+                 },
     series: [{
-        // name : column_name,
+        name : column_name,
         data: data_for_graph
     }]
 });
 }    
-
-document.addEventListener('DOMContentLoaded', function () {
-            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
-    highchartmaker(temp)
-        });
-
-
 </script>>
