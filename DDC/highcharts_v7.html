@@ -14,12 +14,16 @@
 <script>
 
 var _resultName = null;
-    var temp = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+let tempstring = onDataReceived();
+console.log("this is the temp string:" + tempstring)
+        });
+
 
 function onDataReceived(resultData) {
     if (!resultData) return;
-
-
     _resultName = resultData.resultName;
     console.log("LOOK HERE FOR VA DATA" + resultData)
     temp = "'" + resultData["columns"][1]["label"] + "'"
@@ -27,53 +31,50 @@ function onDataReceived(resultData) {
     const selections = va.contentUtil.initializeSelections(resultData);
     return temp;
 }
-var data_for_graph = [
-            ['Norway', 16],
-            ['Germany', 12],
-            ['USA', 8],
-            ['Sweden', 8],
-            ['Netherlands', 8],
-            ['ROC', 6],
-            ['India', 7],
-            ['Canada', 4],
-            ['Japan', 3]];
 
-function highchartmaker(column_name) {
+// var data_for_graph = [
+//             ['Norway', 16],
+//             ['Germany', 12],
+//             ['USA', 8],
+//             ['Sweden', 8],
+//             ['Netherlands', 8],
+//             ['ROC', 6],
+//             ['India', 7],
+//             ['Canada', 4],
+//             ['Japan', 3]];
+
+// function highchartmaker(column_name) {
     
-console.log("Value of Temp NOW:" + temp)
+// console.log("Value of Temp NOW:" + temp)
 
-let cname = temp;
-// 'corruption_index';
+// let cname = temp;
+// // 'corruption_index';
 
-Highcharts.chart('container', {
-    chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 45
-        }
-    },
-    title: {
-        text: 'Beijing 2022 gold medals by country v7',
-        align: 'left'
-    },
-    plotOptions: {
-        pie: {
-            innerSize: 100,
-            depth: 45
-        }
-    },
-    series: [{
-        name : cname,
-        data: data_for_graph
-    }]
-});
-}    
+// Highcharts.chart('container', {
+//     chart: {
+//         type: 'pie',
+//         options3d: {
+//             enabled: true,
+//             alpha: 45
+//         }
+//     },
+//     title: {
+//         text: 'Beijing 2022 gold medals by country v7',
+//         align: 'left'
+//     },
+//     plotOptions: {
+//         pie: {
+//             innerSize: 100,
+//             depth: 45
+//         }
+//     },
+//     series: [{
+//         name : cname,
+//         data: data_for_graph
+//     }]
+// });
+// }    
 
-document.addEventListener('DOMContentLoaded', function () {
-            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
-            highchartmaker(temp);
-        });
 
 
 </script>>
