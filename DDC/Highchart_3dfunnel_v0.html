@@ -12,6 +12,26 @@
 </figure>
 
 <script>
+var _resultName = null;
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+function onDataReceived(resultData) {
+    if (!resultData) return;
+    _resultName = resultData.resultName;
+    tempstring = resultData["columns"][1]["label"]
+    const selections = va.contentUtil.initializeSelections(resultData);
+    data_temp = resultData["data"]
+    // const va_data_merge = []
+    // for (let i = 0; i < data_temp.length; i++){
+    //     va_data_merge.push(resultData["data"][i])
+    // }
+    // highchartmaker(tempstring, va_data_merge);
+}
+
+
+
 // Set up the chart
 Highcharts.chart('container', {
     chart: {
