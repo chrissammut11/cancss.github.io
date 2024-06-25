@@ -1,11 +1,13 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/cylinder.js"></script>
-<script src="https://code.highcharts.com/modules/funnel3d.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
 <script type="text/javascript" src="util/messagingUtil.js"></script>
 <script type="text/javascript" src="util/contentUtil.js"></script>
+
 
 <figure class="highcharts-figure">
     <div id="container"></div>
@@ -22,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function onDataReceived(resultData) {
     if (!resultData) return;
     _resultName = resultData.resultName;
-    tempstring = resultData["columns"][1]["label"]
+    xaxis_label = resultData["columns"][0]["label"]
+    yaxis_label = resultData["columns"][0]["label"]
     const selections = va.contentUtil.initializeSelections(resultData);
     data_temp = resultData["data"]
     // console.log("full va data" + resultData)
@@ -33,43 +36,63 @@ function onDataReceived(resultData) {
     for (let i = 0; i < data_temp.length; i++){
          va_data.push(resultData["data"][i])
      }
-    highchartmaker(tempstring, va_data);
+    highchartmaker(xaxis_label, yaxis_label);
 }
 
-function highchartmaker(series_name, data_from_va) {
-// Set up the chart
+
+function highchartmaker(x, y) {
 Highcharts.chart('container', {
     chart: {
-        type: 'funnel3d',
+        type: 'cylinder',
         options3d: {
             enabled: true,
-            alpha: 10,
+            alpha: 15,
+            beta: 15,
             depth: 50,
-            viewDistance: 50
+            viewDistance: 25
         }
     },
     title: {
-        text: 'Highcharts Funnel3D Chart v6'
+        text: 'Cylinder v0'
+    },
+    xAxis: {
+        categories: [
+            '0-9', '10-19', '20-29', '30-39', '40-49', '50-59', '60-69',
+            '70-79', '80-89', '90+'
+        ],
+        title: {
+            text: x
+        },
+        labels: {
+            skew3d: true
+        }
+    },
+    yAxis: {
+        title: {
+            margin: 20,
+            text: y
+        },
+        labels: {
+            skew3d: true
+        }
+    },
+    tooltip: {
+        headerFormat: '<b>Age: {point.x}</b><br>'
     },
     plotOptions: {
         series: {
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b> ({point.y:,.0f})',
-                allowOverlap: true,
-                y: 10
-            },
-            neckWidth: '30%',
-            neckHeight: '25%',
-            width: '80%',
-            height: '80%'
+            depth: 25,
+            colorByPoint: true
         }
     },
     series: [{
-        name: series_name,
-        data: data_from_va
+        data: [
+            95321, 169339, 121105, 136046, 106800, 58041, 26766, 14291,
+            7065, 3283
+        ],
+        name: 'Cases',
+        showInLegend: false
     }]
 });
 }
-
 </script>
