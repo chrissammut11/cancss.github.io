@@ -1,0 +1,221 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script type="text/javascript" src="util/messagingUtil.js"></script>
+<script type="text/javascript" src="util/contentUtil.js"></script>
+<head>
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            border-style: none;
+            border-width: 0px;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+<script>
+
+var _resultName = null;
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+// let va_data = [['Website visits', 15654], ['Downloads', 4064], ['Requested price list', 1987], ['Invoice sent', 976], ['Finalized', 846]];
+
+function onDataReceived(resultData) {
+    if (!resultData) return;
+    _resultName = resultData.resultName;
+   console.log(_resultName)
+    xaxis_label = resultData["columns"][0]["label"]
+    y1axis_label = resultData["columns"][1]["label"]
+    y2axis_label = resultData["columns"][2]["label"]
+    y3axis_label = resultData["columns"][3]["label"]
+    const selections = va.contentUtil.initializeSelections(resultData);
+    data_temp = resultData["data"]
+    // console.log("full va data" + resultData)
+    // console.log("we go to data within va Data" + resultData["data"])
+    // console.log("we grab the first element of va's data's data" + resultData["data"][0])
+    // console.log("we grab the second element of va's data's data" +resultData["data"][1])
+    const va_col0 = []
+    const va_col1 = []
+    const va_col2 = []
+    const va_col3 = []
+    for (let i = 0; i < data_temp.length; i++){
+         va_col0.push(resultData["data"][i][0])
+         va_col1.push(resultData["data"][i][1])
+         va_col2.push(resultData["data"][i][2])
+         va_col3.push(resultData["data"][i][3])
+     }
+    highchartmaker(xaxis_label, y1axis_label, y2axis_label, y3axis_label, va_col0, va_col1, va_col2, va_col3);
+}
+
+
+function highchartmaker(x, y1, y2, y3, xdata, y1data, y2data, y3data) {
+Highcharts.chart('container', {
+    chart: {
+        zooming: {
+            type: 'xy'
+        }
+    },
+    title: {
+        text: 'US Economic Indicators 2023 v13',
+        align: 'left'
+    },
+    xAxis: [{
+        categories: xdata,
+        crosshair: true
+    }],
+    yAxis: [{ // Primary yAxis
+        labels: {
+            format: '{value} %',
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        title: {
+            text: y2,
+            style: {
+                color: Highcharts.getOptions().colors[2]
+            }
+        },
+        opposite: true
+
+    }, { // Secondary yAxis
+        gridLineWidth: 0,
+        title: {
+            text: y1,
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        labels: {
+            format: '$ {value}',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        }
+
+    }, { // Tertiary yAxis
+        gridLineWidth: 0,
+        title: {
+            text: y3,
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        labels: {
+            format: '{value} %',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        opposite: true
+    }],
+    tooltip: {
+        shared: true
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 80,
+        verticalAlign: 'top',
+        y: 55,
+        floating: true,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || // theme
+            'rgba(255,255,255,0.25)'
+    },
+    series: [{
+        name: y1,
+        type: 'column',
+        yAxis: 1,
+        data: y1data,
+        tooltip: {
+            valuePrefix: '$ '
+        }
+
+    }, {
+        name: y2,
+        type: 'spline',
+        yAxis: 2,
+        data: y2data,
+        marker: {
+            enabled: false
+        },
+        dashStyle: 'shortdot',
+        tooltip: {
+            valueSuffix: ' %'
+        }
+
+    }, {
+        name: y3,
+        type: 'spline',
+        data: y3data,
+        tooltip: {
+            valueSuffix: ' %'
+        }
+    }],
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    floating: false,
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom',
+                    x: 0,
+                    y: 0
+                },
+                yAxis: [{
+                    labels: {
+                        align: 'right',
+                        x: 0,
+                        y: -6
+                    },
+                    showLastLabel: false
+                }, {
+                    labels: {
+                        align: 'left',
+                        x: 0,
+                        y: -6
+                    },
+                    showLastLabel: false
+                }, {
+                    visible: false
+                }]
+            }
+        }]
+    }
+});
+
+}
+
+</script>
+
+
+
+</body>
