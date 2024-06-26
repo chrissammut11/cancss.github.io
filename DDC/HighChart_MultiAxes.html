@@ -1,7 +1,5 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
-<!-- <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
-<!-- <script src="https://code.highcharts.com/modules/export-data.js"></script> -->
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 <script type="text/javascript" src="util/messagingUtil.js"></script>
@@ -46,17 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
 function onDataReceived(resultData) {
     if (!resultData) return;
     _resultName = resultData.resultName;
-   console.log(_resultName)
     xaxis_label = resultData["columns"][0]["label"]
     c1label = resultData["columns"][1]["label"]
     c2label = resultData["columns"][2]["label"]
     c3label = resultData["columns"][3]["label"]
     const selections = va.contentUtil.initializeSelections(resultData);
     data_temp = resultData["data"]
-    // console.log("full va data" + resultData)
-    // console.log("we go to data within va Data" + resultData["data"])
-    // console.log("we grab the first element of va's data's data" + resultData["data"][0])
-    // console.log("we grab the second element of va's data's data" +resultData["data"][1])
     const va_col0 = []
     const va_col1 = []
     const va_col2 = []
