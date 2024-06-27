@@ -1,0 +1,87 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/sankey.js"></script>
+<script src="https://code.highcharts.com/modules/dependency-wheel.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script type="text/javascript" src="util/messagingUtil.js"></script>
+<script type="text/javascript" src="util/contentUtil.js"></script>
+
+<head>
+    <style>
+        html {
+            overflow: hidden;
+        }
+
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            border-style: none;
+            border-width: 0px;
+            overflow: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+function onDataReceived(resultData) {
+    if (!resultData) return;
+    col0_label = resultData["columns"][0]["label"]
+    col1_label = resultData["columns"][1]["label"]
+    col2_label = resultData["columns"][2]["label"]
+    data_temp = resultData["data"]
+
+    const va_data = []
+    for (let i = 0; i < data_temp.length; i++){
+         va_data.push(resultData["data"][i])
+     }
+
+   highchartmaker(va_data,col2_label);
+}
+
+function highchartmaker(input_data,input_series_name) {
+Highcharts.chart('container', {
+    title: {
+        text: ''
+    },
+    accessibility: {
+        point: {
+            valueDescriptionFormat: '{index}. From {point.from} to ' +
+                '{point.to}: {point.weight}.'
+        }
+    },
+    series: [{
+        keys: ['from', 'to', 'weight'],
+        data: input_data,
+        type: 'dependencywheel',
+        name: input_series_name,
+        dataLabels: {
+            color: '#333',
+            style: {
+                textOutline: 'none'
+            },
+            textPath: {
+                enabled: true
+            },
+            distance: 10
+        },
+        size: '95%'
+    }]
+});
+}
+</script>
