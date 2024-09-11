@@ -32,7 +32,25 @@
   </figure>
 
 <script>
-let va_data=[[{
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+function onDataReceived(resultData) {
+    if (!resultData) return;
+    console.log(resultData)
+    // col0_label = resultData["columns"][0]["label"]
+    // col1_label = resultData["columns"][1]["label"]
+    // col2_label = resultData["columns"][2]["label"]
+    // data_temp = resultData["data"]
+
+    // const va_data = []
+    // for (let i = 0; i < data_temp.length; i++){
+    //      va_data.push(resultData["data"][i])
+    //  
+}
+
+let va_data=[{
         name: 'Other',
         data: [25, 25]
     }, {
@@ -51,7 +69,6 @@ let va_data=[[{
         data: [12, 15]
     }
     ]
-]
 
 highchartmaker(va_data);
 
