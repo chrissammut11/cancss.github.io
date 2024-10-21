@@ -69,14 +69,14 @@
         rowCount == 1
         ) {
         itemPhoto = document.createElement("img");
-        itemPhoto.src="../images/"+vaMessage.data[0][0].toLowerCase()+".jpg"; // check this!
+        itemPhoto.src="./../images/"+vaMessage.data[0][0].toLowerCase()+".jpg"; // check this!
         itemPhoto.alt = vaMessage.data[0][0];
         itemPhoto.classList.add("img-fluid");
  
         photoDiv.appendChild(itemPhoto);
         } else {
         itemPhoto = document.createElement("img");
-        itemPhoto.src="../images/insight_toys_logo.png";
+        itemPhoto.src="images/insight_toys_logo.png";
         itemPhoto.alt = "Insight Toys Logo";
         itemPhoto.classList.add("img-fluid");
  
