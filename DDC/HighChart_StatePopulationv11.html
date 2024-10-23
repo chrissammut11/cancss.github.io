@@ -79,7 +79,7 @@ function onDataReceived(resultData) {
     temp_dict1["y"]=resultData["data"][1][5]
     temp_dict1["value"]=resultData["data"][1][6]
 
-const va_data=temp_dict0.concat(temp_dict1);
+const va_data=[...temp_dict0, ...temp_dict1];
 
 console.log(va_data)
 // highchartmaker(va_data);
