@@ -1,0 +1,184 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/tilemap.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script type="text/javascript" src="util/messagingUtil.js"></script>
+<script type="text/javascript" src="util/contentUtil.js"></script>
+<head>
+    <style>
+        /* html {
+            overflow: hidden;
+        }
+
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            border-style: none;
+            border-width: 0px;
+            overflow: auto;
+        } */
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 360px;
+    max-width: 700px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.highcharts-description {
+    margin: 0.3rem 10px;
+}
+    </style>
+
+</head>
+<body>
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+</figure>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+function onDataReceived(resultData) {
+    if (!resultData) return;
+    data_temp = resultData["data"]
+  
+    const va_data = []
+     for (let i = 0; i < data_temp.length; i++){
+    let temp_dict = {};
+    temp_dict["'hc-a2'"]=data_temp[i][1]
+    temp_dict["name"]=data_temp[i][2]
+    temp_dict["region"]=data_temp[i][3]
+    temp_dict["x"]=data_temp[i][4]
+    temp_dict["y"]=data_temp[i][5]
+    temp_dict["value"]=data_temp[i][6]
+
+    console.log(temp_dict);
+        va_data.push(temp_dict);
+     }
+
+ highchartmaker(va_data);
+}
+
+//sample data
+// va_data = [{'hc-a2': 'AL',name: 'Alabama',region: 'South',x: 6,y: 7,value: 5108468}]
+
+function highchartmaker(input_data) {
+
+Highcharts.chart('container', {
+    chart: {
+        type: 'tilemap',
+        inverted: true,
+        height: '80%'
+    },
+
+    title: {
+        text: '',
+        style: {
+            fontSize: '1em'
+        }
+    },
+    xAxis: {
+        visible: false
+    },
+
+    yAxis: {
+        visible: false
+    },
+
+    colorAxis: {
+        dataClasses: [{
+            from: 0,
+            to: 1000000,
+            color: '#F9EDB3',
+            name: '< 1M'
+        }, {
+            from: 1000000,
+            to: 5000000,
+            color: '#FFC428',
+            name: '1M - 5M'
+        }, {
+            from: 5000000,
+            to: 20000000,
+            color: '#FF7987',
+            name: '5M - 20M'
+        }, {
+            from: 20000000,
+            color: '#FF2371',
+            name: '> 20M'
+        }]
+    },
+
+    tooltip: {
+        headerFormat: '',
+        pointFormat: 'The population of <b> {point.name}</b> is <b>' +
+            '{point.value}</b>'
+    },
+
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '{point.hc-a2}',
+                color: '#000000',
+                style: {
+                    textOutline: false
+                }
+            }
+        }
+    },
+
+    series: [{
+        data: input_data
+    }]
+})
+};
+
+</script>
+</body>
