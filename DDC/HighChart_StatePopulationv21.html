@@ -50,21 +50,22 @@ function onDataReceived(resultData) {
     data_temp = resultData["data"]
   
     const va_data = []
-//     for (let i = 0; i < 3; i++){
+     for (let i = 0; i < 2; i++){
     let temp_dict = {};
-    temp_dict["hc-a2"]=data_temp[0][1]
-    temp_dict["name"]=data_temp[0][2]
-    temp_dict["region"]=data_temp[0][3]
-    temp_dict["x"]=data_temp[0][4]
-    temp_dict["y"]=data_temp[0][5]
-    temp_dict["value"]=data_temp[0][6]
+    temp_dict["hc-a2"]=data_temp[i][1]
+    temp_dict["name"]=data_temp[i][2]
+    temp_dict["region"]=data_temp[i][3]
+    temp_dict["x"]=data_temp[i][4]
+    temp_dict["y"]=data_temp[i][5]
+    temp_dict["value"]=data_temp[i][6]
+
+    console.log(temp_dict);
+        va_data.push(temp_dict);
+//         delete temp_dict
+     }
 
     console.log("Look Here");
-    console.log(temp_dict);
-        // va_data.push(temp_dict);
-        // console.log(va_data);
-//         delete temp_dict
-//      }
+    console.log(va_data);
 
 //     let temp_dict0 = {};
 //     temp_dict0["hc-a2"]=resultData["data"][0][1]
