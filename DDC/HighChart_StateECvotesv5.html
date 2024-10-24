@@ -92,7 +92,7 @@ function onDataReceived(resultData) {
     const va_data = []
      for (let i = 0; i < data_temp.length; i++){
     let temp_dict = {};
-    temp_dict["'hc-a2'"]=data_temp[i][1]
+    temp_dict["hc-a2"]=data_temp[i][1]
     temp_dict["name"]=data_temp[i][2]
     temp_dict["region"]=data_temp[i][3]
     temp_dict["x"]=data_temp[i][4]
@@ -135,29 +135,34 @@ Highcharts.chart('container', {
     colorAxis: {
         dataClasses: [{
             from: 0,
-            to: 1000000,
-            color: '#F9EDB3',
-            name: '< 1M'
+            to: 5,
+            color: '#33E9FF',
+            name: '< 5'
         }, {
-            from: 1000000,
-            to: 5000000,
-            color: '#FFC428',
-            name: '1M - 5M'
+            from: 5,
+            to: 10,
+            color: '#33C1FF',
+            name: '5 - 9'
         }, {
-            from: 5000000,
-            to: 20000000,
-            color: '#FF7987',
-            name: '5M - 20M'
+            from: 10,
+            to: 20,
+            color: '#338AFF',
+            name: '10-19'
         }, {
-            from: 20000000,
-            color: '#FF2371',
-            name: '> 20M'
+            from: 20,
+            to: 30,
+            color: '#335EFF',
+            name: '20-29'
+        }, {
+            from: 29,
+            color: '#3303BF',
+            name: '> 30'
         }]
     },
 
     tooltip: {
         headerFormat: '',
-        pointFormat: 'The population of <b> {point.name}</b> is <b>' +
+        pointFormat: 'The number of electoral votes for <b> {point.name}</b> is <b>' +
             '{point.value}</b>'
     },
 
@@ -166,7 +171,7 @@ Highcharts.chart('container', {
             dataLabels: {
                 enabled: true,
                 format: '{point.hc-a2}',
-                color: '#000000',
+                color: '#D9D9DD',
                 style: {
                     textOutline: false
                 }
