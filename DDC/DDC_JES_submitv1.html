@@ -2,15 +2,16 @@
 <html>
 
 <head>
-<title>JavaScript Job Execution</title>
+<title>JavaScript Job Execution v1</title>
 
 <script>
 function submitForm() {
  var formData = new FormData();
- // Your small JSON object here
+ // Your large JSON object here
  var json = {aaa:"AAA", bbb:222, ccc:false};
+ var blob = new Blob([JSON.stringify(json)], {type : 'application/json'});
  // Create the input parameter for the JSON data
- formData.append("myjson", JSON.stringify(json));
+ formData.append("myjsonfile", blob);
  // Create other input parameters
  formData.append("_program", "/Public/ChrisS/IRCC_va/save_data_from_VA");
  formData.append("_action", "execute");
