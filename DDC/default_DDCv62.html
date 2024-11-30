@@ -257,16 +257,14 @@ as the basis for this page -->
         result = getBrowserLocales();
         let firstValue = extractFirstValue(result);
         let string1=String(firstValue);
-        string1 = string1.toLowerCase;
         console.log("BROWSER LANGUAGE IS "+ string1)
 
 
             // Add table cell for each data field
             dataFields.forEach(function (field, index) {
                 let string2=String(field);
-                string2 = string2.toLowerCase;
 
-                console.log("Index " + index + " String1="+string1+" and String2="+string2+" do they match? =" + string1 === string2);
+                console.log("Index " + index + " String1="+string1+" and String2="+string2+" do they match? =" + string1.toLowerCase === string2.toLowerCase);
                 
                 if (lastColumnIsSelectionData && index == dataFields.length - 1) {
                     if (field > 0)
