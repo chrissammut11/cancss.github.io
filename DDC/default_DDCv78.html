@@ -129,12 +129,6 @@ as the basis for this page -->
             resultName: self.resultName,
             selections: selection
         };
-
-            // console.log("THIS IS WHAT IS BEING SENT TO SendSelection function")
-            // console.log("selected rows: " + selectedRows);
-            // console.log("selection: " + selection);
-            // console.log("message: " + message);
-
         sendMessage(message);
     }
 
@@ -155,59 +149,6 @@ as the basis for this page -->
         e.appendChild(document.createTextNode(text));
         return e;
     }
-    
-    // Process the array of CSV data and create a table
-    function jsonToTable(columnInfo, jsonData) {
-
-        // Create table
-        var tableDivId = 'sample'; // identifier for the table's parent/container
-        var tableDiv = document.getElementById(tableDivId);
-
-        // If a table already exists in our custom div, remove it
-        tableDiv.innerHTML = "";
-
-        var table = tableDiv.appendChild(document.createElement('table'));
-        var lastColumnIsSelectionData = false;
-        // Create headers from column info
-        addHeaderRow(columnInfo.filter(function (c) {
-            if (c.usage == "brush") {
-                lastColumnIsSelectionData = true;
-                return false;
-            }
-            return true;
-        }).map(function (c) {
-            return c.label;
-        }));
-
-        // Create table body for incoming data
-        var tableBody = table.appendChild(document.createElement('tbody'));
-
-        // Add remaining rows to table body
-        if (jsonData) {
-            for (var i = 0; i < jsonData.length; i++) {
-        console.log("data fields"+i+" is "+jsonData[i]);
-        console.log("last column ="+lastColumnIsSelectionData);
-
-                    // addDataRow(jsonData[i], lastColumnIsSelectionData);
-            }
-        }
-
-        // Append a header row to the table
-        function addHeaderRow(columnLabels) {
-            // Create table row
-            var tableHead = document.createElement('thead');
-            var tr = document.createElement('tr');
-
-            // Add a blank cell for checkbox/selection column
-            tr.appendChild(document.createElement('th'));
-
-            // Add a header cell for each column heading
-            columnLabels.forEach(function (header) {
-                tr.appendChild(createElementWithText('th', header));
-            });
-            tableHead.appendChild(tr);
-            table.appendChild(tableHead);
-        }
 
         function getBrowserLocales(options = {}) {
                 const defaultOptions = {
@@ -240,6 +181,63 @@ as the basis for this page -->
                 return values[0];
             }
 
+    result = getBrowserLocales();
+    let firstValue = extractFirstValue(result);
+    console.log(" The browser language is currently "+ firstValue)
+
+
+    // Process the array of CSV data and create a table
+    function jsonToTable(columnInfo, jsonData) {
+
+        // Create table
+        var tableDivId = 'sample'; // identifier for the table's parent/container
+        var tableDiv = document.getElementById(tableDivId);
+
+        // If a table already exists in our custom div, remove it
+        tableDiv.innerHTML = "";
+
+        var table = tableDiv.appendChild(document.createElement('table'));
+        var lastColumnIsSelectionData = false;
+        // Create headers from column info
+        addHeaderRow(columnInfo.filter(function (c) {
+            if (c.usage == "brush") {
+                lastColumnIsSelectionData = true;
+                return false;
+            }
+            return true;
+        }).map(function (c) {
+            return c.label;
+        }));
+
+        // Create table body for incoming data
+        var tableBody = table.appendChild(document.createElement('tbody'));
+
+        let jsonData2 = [firstValue,firstValue];
+
+        // Add remaining rows to table body
+        if (jsonData2) {
+            for (var i = 0; i < jsonData2.length; i++) {
+                    addDataRow(jsonData2[i], lastColumnIsSelectionData);
+            }
+        }
+
+        // Append a header row to the table
+        function addHeaderRow(columnLabels) {
+            // Create table row
+            var tableHead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            // Add a blank cell for checkbox/selection column
+            tr.appendChild(document.createElement('th'));
+
+            // Add a header cell for each column heading
+            columnLabels.forEach(function (header) {
+                tr.appendChild(createElementWithText('th', header));
+            });
+            tableHead.appendChild(tr);
+            table.appendChild(tableHead);
+        }
+
         // Append a data row to the table
         function addDataRow(dataFields, lastColumnIsSelectionData) {
             addDataRow.rowNum = ++addDataRow.rowNum || 0;
@@ -257,32 +255,25 @@ as the basis for this page -->
             checkboxCell.appendChild(checkbox);
             tr.appendChild(checkboxCell);
 
-        result = getBrowserLocales();
-        let firstValue = extractFirstValue(result);
-        let string1=String(firstValue);
-        console.log("BROWSER LANGUAGE IS "+ string1)
-
-
             // Add table cell for each data field
             dataFields.forEach(function (field, index) {
-                field = string1; //reassign value to the browser locale;
-                
                 if (lastColumnIsSelectionData && index == dataFields.length - 1) {
                     if (field > 0)
-                        checkbox.checked = false;
+                        checkbox.checked = true;
                     return;
                 }
-
                 var td = createElementWithText('td', field);
                 if (!isNaN(field)) {
                     td.className = 'numeric'; // Set numeric class to align numeric cells
                 }
-
-                 tr.appendChild(td);
+                tr.appendChild(td);
             });
             tableBody.appendChild(tr);
         }
     }
 </script>
+
+
+
 </body>
 </html>
