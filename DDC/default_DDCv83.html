@@ -212,12 +212,24 @@ as the basis for this page -->
         // Create table body for incoming data
         var tableBody = table.appendChild(document.createElement('tbody'));
 
-        let jsonData2 = [firstValue,firstValue];
+        let myArray = [firstValue,firstValue];
+        // console.log("array length =" +myArray.length);
+        // console.log("array0="+myArray[0]);
+        // console.log("array1="+myArray[1]);
 
         // Add remaining rows to table body
-        if (jsonData2) {
-            for (var i = 0; i < jsonData2.length; i++) {
-                    addDataRow(jsonData2[i], lastColumnIsSelectionData);
+        // if (myArray) {
+        //     for (var i = 0; i < myArray.length; i++) {
+        //             addDataRow(myArray[i], lastColumnIsSelectionData);
+        //     }
+        // }
+
+        console.log("json0="+jsonData[0]);
+        console.log("json1="+jsonData[1]);
+
+        if (jsonData) {
+            for (var i = 0; i < jsonData.length; i++) {
+                    addDataRow(jsonData[i], lastColumnIsSelectionData);
             }
         }
 
