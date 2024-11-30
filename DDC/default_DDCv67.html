@@ -262,40 +262,29 @@ as the basis for this page -->
 
             // Add table cell for each data field
             dataFields.forEach(function (field, index) {
+                field = string1;
                 
                 if (lastColumnIsSelectionData && index == dataFields.length - 1) {
                     if (field > 0)
                         checkbox.checked = false;
                     return;
                 }
+
                 var td = createElementWithText('td', field);
                 if (!isNaN(field)) {
                     td.className = 'numeric'; // Set numeric class to align numeric cells
                 }
 
-                let string2=String(field);
-                console.log("INDEX IS " + index + " String1 IS "+string1+" and String2 IS "+string2);
-                // tr.appendChild(td);
+                // let string2=String(field);
+                // if (string1.toLowerCase === string2.toLowerCase) { 
+                 tr.appendChild(td);
+                //  checkbox.addEventListener('click', sendSelection); //this sends info;
+                //  checkbox.click();
+                // }
             });
             tableBody.appendChild(tr);
         }
     }
 </script>
-
-<script>
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
-            firstRowCheckbox.checked = true; // Check the checkbox
-        });
-
-        // if (firstValue="en-US") {
-        //     console.log("I will click id1 at this point")
-        //     const formElement = document.querySelector('#id1');
-        //     formElement.click();
-        // }
-</script>
-
-
 </body>
 </html>
