@@ -52,7 +52,40 @@ as the basis for this page -->
             display: block;
         }</style></head><body><div id="instruction">
 <!-- <p>The data-driven content object enables you to incorporate your own content, like a calendar object, into a SAS Visual Analytics report.</p> -->
-</div><div id="sample"></div><script>var sampleData = {data:[
+</div><div id="sample"></div>
+<script>
+        function getBrowserLocales(options = {}) {
+                const defaultOptions = {
+                languageCodeOnly: false,
+                };
+                const opt = {
+                ...defaultOptions,
+                ...options,
+                };
+
+                const browserLocales =
+                navigator.languages === undefined
+                    ? [navigator.language]
+                    : navigator.languages;
+                if (!browserLocales) {
+                return undefined;
+                }
+
+                return browserLocales.map(locale => {
+                const trimmedLocale = locale.trim();
+                return opt.languageCodeOnly
+                    ? trimmedLocale.split(/-|_/)[0]
+                    : trimmedLocale;
+                });
+        } 
+
+        function extractFirstValue(inputString) {
+            inputString = String(inputString);
+            let values = inputString.split(",");
+                return values[0];
+            }
+
+var sampleData = {data:[
         ["Denmark","Western Europe",1,7.526,1.44178,1.16374,0.79504,0.57941,0.44453,0.36171,2.73939],
         ["Switzerland","Western Europe",2,7.509,1.52733,1.14524,0.86303,0.58557,0.41203,0.28083,2.69463],
         ["Iceland","Western Europe",3,7.501,1.42666,1.18326,0.86733,0.56624,0.14975,0.47678,2.83137],
@@ -129,6 +162,12 @@ as the basis for this page -->
             resultName: self.resultName,
             selections: selection
         };
+
+            // console.log("THIS IS WHAT IS BEING SENT TO SendSelection function")
+            // console.log("selected rows: " + selectedRows);
+            // console.log("selection: " + selection);
+            // console.log("message: " + message);
+
         sendMessage(message);
     }
 
@@ -200,6 +239,7 @@ as the basis for this page -->
             table.appendChild(tableHead);
         }
 
+
         // Append a data row to the table
         function addDataRow(dataFields, lastColumnIsSelectionData) {
             addDataRow.rowNum = ++addDataRow.rowNum || 0;
@@ -209,80 +249,42 @@ as the basis for this page -->
             var checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.setAttribute('id', addDataRow.rowNum);
-
             checkbox.checked = false;
-            checkbox.addEventListener('click', sendSelection); //this sends info;
-            checkbox.click();
+            // checkbox.addEventListener('click', sendSelection); //this sends info;
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
             tr.appendChild(checkboxCell);
+
+            result = getBrowserLocales();
+            let firstValue = extractFirstValue(result);
+            console.log("BROWSER VALUE IS: " + firstValue);
 
             // Add table cell for each data field
             dataFields.forEach(function (field, index) {
                 if (lastColumnIsSelectionData && index == dataFields.length - 1) {
                     if (field > 0)
-                        checkbox.checked = true;
+                        checkbox.checked = false;
                     return;
                 }
                 var td = createElementWithText('td', field);
                 if (!isNaN(field)) {
                     td.className = 'numeric'; // Set numeric class to align numeric cells
                 }
+
+                console.log("FIELD VALUE IS: " + field);
+                if (field===firstValue) {
+                        console.log("BROWSER AND FIELD MATCH SO PROCEED HERE ...");
+                         checkbox.addEventListener('click', sendSelection); //this sends info;
+                         checkbox.click();
+                };
+
                 tr.appendChild(td);
-            });
+            })
+;
             tableBody.appendChild(tr);
         }
     }
 </script>
-
-<script>
-        function getBrowserLocales(options = {}) {
-                const defaultOptions = {
-                languageCodeOnly: false,
-                };
-                const opt = {
-                ...defaultOptions,
-                ...options,
-                };
-
-                const browserLocales =
-                navigator.languages === undefined
-                    ? [navigator.language]
-                    : navigator.languages;
-                if (!browserLocales) {
-                return undefined;
-                }
-
-                return browserLocales.map(locale => {
-                const trimmedLocale = locale.trim();
-                return opt.languageCodeOnly
-                    ? trimmedLocale.split(/-|_/)[0]
-                    : trimmedLocale;
-                });
-        } 
-
-        function extractFirstValue(inputString) {
-            inputString = String(inputString);
-            let values = inputString.split(",");
-                return values[0];
-            }
-
-    result = getBrowserLocales();
-    let firstValue = extractFirstValue(result);
-    console.log(" The browser language is currently "+ firstValue)
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
-            firstRowCheckbox.checked = true; // Check the checkbox
-        });
-
-        // if (firstValue="en-US") {
-        //     console.log("I will click id1 at this point")
-        //     const formElement = document.querySelector('#id1');
-        //     formElement.click();
-        // }
-</script>
-
 
 </body>
 </html>
