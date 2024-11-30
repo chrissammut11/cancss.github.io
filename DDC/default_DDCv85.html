@@ -224,11 +224,11 @@ as the basis for this page -->
         //     }
         // }
 
-        jsonData[0]=firstValue;
-
+        for (var j = 0; j < jsonData.length; j++) {
+            jsonData[j]=firstValue;
+        }
         console.log("json0="+jsonData[0]);
         console.log("json1="+jsonData[1]);
-
 
         if (jsonData) {
             for (var i = 0; i < jsonData.length; i++) {
