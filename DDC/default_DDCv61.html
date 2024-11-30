@@ -130,6 +130,11 @@ as the basis for this page -->
             selections: selection
         };
 
+            // console.log("THIS IS WHAT IS BEING SENT TO SendSelection function")
+            // console.log("selected rows: " + selectedRows);
+            // console.log("selection: " + selection);
+            // console.log("message: " + message);
+
         sendMessage(message);
     }
 
@@ -178,25 +183,9 @@ as the basis for this page -->
         var tableBody = table.appendChild(document.createElement('tbody'));
 
         // Add remaining rows to table body
-        // if (jsonData) {
-        //     for (var i = 0; i < jsonData.length; i++) {
-        //             addDataRow(jsonData[i], lastColumnIsSelectionData);
-        //     }
-        // }
         if (jsonData) {
             for (var i = 0; i < jsonData.length; i++) {
-                    let thisRow = String(jsonData[i]);
-                    console.log("the browser language is set to "+ firstValue);
-                    console.log("this Row is " + thisRow);
-                    console.log(thisRow.toLowerCase() === firstValue.toLowerCase());
-                    if (thisRow.toLowerCase() === firstValue.toLowerCase()) {
-                        console.log("the values are matching");
-                        addDataRow(jsonData[i], lastColumnIsSelectionData);
-                    }
-                    else {
-                        console.log("the values ARE NOT matching!");
-                        addDataRowX(jsonData[i], lastColumnIsSelectionData);
-                    }
+                    addDataRow(jsonData[i], lastColumnIsSelectionData);
             }
         }
 
@@ -217,76 +206,6 @@ as the basis for this page -->
             table.appendChild(tableHead);
         }
 
-        // Append a data row to the table --- INCLUDING CLICK
-        function addDataRow(dataFields, lastColumnIsSelectionData) {
-            addDataRow.rowNum = ++addDataRow.rowNum || 0;
-            var tr = document.createElement('tr');
-
-            // Add a checkbox/selector with ID to each row
-            var checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.setAttribute('id', addDataRow.rowNum);
-
-            checkbox.checked = false;
-            checkbox.addEventListener('click', sendSelection); //this sends info;
-            checkbox.click();
-            var checkboxCell = document.createElement('td');
-            checkboxCell.appendChild(checkbox);
-            tr.appendChild(checkboxCell);
-
-            // Add table cell for each data field
-            dataFields.forEach(function (field, index) {
-                if (lastColumnIsSelectionData && index == dataFields.length - 1) {
-                    if (field > 0)
-                        checkbox.checked = true;
-                    return;
-                }
-                var td = createElementWithText('td', field);
-                if (!isNaN(field)) {
-                    td.className = 'numeric'; // Set numeric class to align numeric cells
-                }
-                tr.appendChild(td);
-            });
-            tableBody.appendChild(tr);
-        }
-        // Append a data row to the table --- EXCLUDING CLICK
-        function addDataRowX(dataFields, lastColumnIsSelectionData) {
-            addDataRowX.rowNum = ++addDataRowX.rowNum || 0;
-            var tr = document.createElement('tr');
-
-            // Add a checkbox/selector with ID to each row
-            var checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.setAttribute('id', addDataRowX.rowNum);
-
-            checkbox.checked = false;
-            checkbox.addEventListener('click', sendSelection); //this sends info;
-            //checkbox.click();
-            var checkboxCell = document.createElement('td');
-            checkboxCell.appendChild(checkbox);
-            tr.appendChild(checkboxCell);
-
-            // Add table cell for each data field
-            dataFields.forEach(function (field, index) {
-                if (lastColumnIsSelectionData && index == dataFields.length - 1) {
-                    if (field > 0)
-                        checkbox.checked = true;
-                    return;
-                }
-                var td = createElementWithText('td', field);
-                if (!isNaN(field)) {
-                    td.className = 'numeric'; // Set numeric class to align numeric cells
-                }
-                tr.appendChild(td);
-            });
-            tableBody.appendChild(tr);
-        }
-
-
-    }
-</script>
-
-<script>
         function getBrowserLocales(options = {}) {
                 const defaultOptions = {
                 languageCodeOnly: false,
@@ -318,9 +237,55 @@ as the basis for this page -->
                 return values[0];
             }
 
-    result = getBrowserLocales();
-    let firstValue = extractFirstValue(result);
-    console.log(" The browser language is currently "+ firstValue)
+        // Append a data row to the table
+        function addDataRow(dataFields, lastColumnIsSelectionData) {
+            addDataRow.rowNum = ++addDataRow.rowNum || 0;
+            var tr = document.createElement('tr');
+
+            // Add a checkbox/selector with ID to each row
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.setAttribute('id', addDataRow.rowNum);
+
+            checkbox.checked = false;
+            checkbox.addEventListener('click', sendSelection); //this sends info;
+            checkbox.click();
+            var checkboxCell = document.createElement('td');
+            checkboxCell.appendChild(checkbox);
+            tr.appendChild(checkboxCell);
+
+        result = getBrowserLocales();
+        let firstValue = extractFirstValue(result);
+        let string1=String(firstValue);
+        string1 = string1.toLowerCase;
+        console.log("BROWSER LANGUAGE IS "+ string1)
+
+
+            // Add table cell for each data field
+            dataFields.forEach(function (field, index) {
+                let string2=String(field);
+                string2 = string2.toLowerCase;
+
+                console.log("Index " + index + " String1="+string1+" and String2="+string2+" do they match? =" + string1 === string2);
+                
+                if (lastColumnIsSelectionData && index == dataFields.length - 1) {
+                    if (field > 0)
+                        checkbox.checked = false;
+                    return;
+                }
+                var td = createElementWithText('td', field);
+                if (!isNaN(field)) {
+                    td.className = 'numeric'; // Set numeric class to align numeric cells
+                }
+
+                // tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        }
+    }
+</script>
+
+<script>
 
         document.addEventListener('DOMContentLoaded', () => {
             let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
