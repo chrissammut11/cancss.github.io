@@ -182,20 +182,18 @@ as the basis for this page -->
 
         // Add remaining rows to table body
         if (jsonData) {
-            
             for (var i = 0; i < jsonData.length; i++) {
-                     let thisRow = String(jsonData[i]);
-                     console.log("the browser language is set to "+ firstValue);
-                     console.log("this Row is " + thisRow);
+                    let thisRow = String(jsonData[i]);
+                    console.log("the browser language is set to "+ firstValue);
+                    console.log("this Row is " + thisRow);
                     console.log(thisRow.toLowerCase() === firstValue.toLowerCase());
-                     if (thisRow.toLowerCase() === firstValue.toLowerCase()) {
+                    if (thisRow.toLowerCase() === firstValue.toLowerCase()) {
                         console.log("the values are matching");
-                    // addDataRow(jsonData[i], lastColumnIsSelectionData);
-                     addDataRow(jsonData[i], lastColumnIsSelectionData);
-                     }
+                        addDataRow(jsonData[i], lastColumnIsSelectionData);
+                    }
                     else {
                         console.log("the values ARE NOT matching!");
-                     }
+                    }
             }
         }
 
@@ -228,7 +226,7 @@ as the basis for this page -->
 
             checkbox.checked = false;
             checkbox.addEventListener('click', sendSelection); //this sends info;
-            checkbox.click();
+            checkbox.click(); //this clicks the checkbox sending an action throughout VA;
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
             tr.appendChild(checkboxCell);
