@@ -182,9 +182,9 @@ as the basis for this page -->
             }
 
     result = getBrowserLocales();
-    let firstValue = extractFirstValue(result);
-    console.log(" The browser language is currently "+ firstValue)
-
+    let firstValue = [extractFirstValue(result)];
+    console.log(" The browser language is currently "+ firstValue);
+    console.log(" the type of firstValue is "+ typeof firstValue);
 
     // Process the array of CSV data and create a table
     function jsonToTable(columnInfo, jsonData) {
@@ -218,18 +218,18 @@ as the basis for this page -->
         // console.log("array1="+myArray[1]);
 
         // Add remaining rows to table body
-        // if (myArray) {
-        //     for (var i = 0; i < myArray.length; i++) {
-        //         addDataRow(myArray[i], lastColumnIsSelectionData);
-        //     }
-        // }
-
-        if (jsonData) {
-            for (var i = 0; i < jsonData.length; i++) {
-                    jsonData[i]= firstValue;
-                    addDataRow(jsonData[i], lastColumnIsSelectionData);
+        if (firstValue) {
+            for (var i = 0; i < firstValue.length; i++) {
+                addDataRow(firstValue[i], lastColumnIsSelectionData);
             }
         }
+
+        // if (jsonData) {
+        //     for (var i = 0; i < jsonData.length; i++) {
+        //             jsonData[i]= firstValue;
+        //             addDataRow(jsonData[i], lastColumnIsSelectionData);
+        //     }
+        // }
 
         // Append a header row to the table
         function addHeaderRow(columnLabels) {
