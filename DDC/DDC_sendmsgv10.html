@@ -246,9 +246,9 @@ as the basis for this page -->
             tableBody.appendChild(tr);
         }
     }
-</script>
+<!-- </script>
 
-<script>
+<script> -->
         function getBrowserLocales(options = {}) {
                 const defaultOptions = {
                 languageCodeOnly: false,
@@ -285,27 +285,14 @@ as the basis for this page -->
     console.log(" CLICKING Point here: "+ firstValue)
 
          document.addEventListener('DOMContentLoaded', () => {
-                // Select the checkbox with id="1"
-                var checkbox = document.querySelector('#row1');
-
-                // Click the checkbox
-                if (checkbox) {
-                    checkbox.addEventListener('click', sendSelection); //this sends info;
-                    checkbox.click();
-                } else {
-                    console.log('Checkbox not found');
-                }
-        //     let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
-        //     firstRowCheckbox.checked = true; // Check the checkbox
+            // Select all elements in the document
+            var allElements = document.querySelectorAll('*');
+            console.log("This is a list of the elements on the page: ")
+            // Iterate over the NodeList and log each element
+            allElements.forEach(element => {
+                console.log(element);
+                });
          });
-
-        // if (firstValue="en-US") {
-        //     console.log("I will click id1 at this point")
-        //     const formElement = document.querySelector('#id1');
-        //     formElement.click();
-        // }
 </script>
-
-
 </body>
 </html>
