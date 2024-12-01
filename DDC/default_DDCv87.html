@@ -212,27 +212,24 @@ as the basis for this page -->
         // Create table body for incoming data
         var tableBody = table.appendChild(document.createElement('tbody'));
 
-        let myArray = [firstValue,firstValue];
+        // let myArray = [firstValue,firstValue];
         // console.log("array length =" +myArray.length);
         // console.log("array0="+myArray[0]);
         // console.log("array1="+myArray[1]);
 
         // Add remaining rows to table body
-        if (myArray) {
-            for (var i = 0; i < myArray.length; i++) {
-                addDataRow(myArray[i], lastColumnIsSelectionData);
-            }
-        }
-
-        // for (var j = 0; j < jsonData.length; j++) {
-        //     jsonData[j]=firstValue;
-        // }
-
-        // if (jsonData) {
-        //     for (var i = 0; i < jsonData.length; i++) {
-        //             addDataRow(jsonData[i], lastColumnIsSelectionData);
+        // if (myArray) {
+        //     for (var i = 0; i < myArray.length; i++) {
+        //         addDataRow(myArray[i], lastColumnIsSelectionData);
         //     }
         // }
+
+        if (jsonData) {
+            for (var i = 0; i < jsonData.length; i++) {
+                    jsonData[i]= firstValue;
+                    addDataRow(jsonData[i], lastColumnIsSelectionData);
+            }
+        }
 
         // Append a header row to the table
         function addHeaderRow(columnLabels) {
