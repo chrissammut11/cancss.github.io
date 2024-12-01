@@ -304,8 +304,14 @@
                 });
 
 // Select the checkbox inside the first table cell
-const checkbox = document.getElementsByid("input#0");
-console.log('checkbox'+checkbox);
+var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+console.log("LOOKING FOR CHECKBOX ID=", checkboxes);
+console.log("Type of checkboxes:", typeof checkboxes);
+
+checkboxes.forEach(function(checkbox, index) {
+  console.log("FOUND CHECKBOX " + index + ":", checkbox);
+    // checkbox.click();
+});
 // Click the checkbox
 // if (checkbox) {
 //     console.log("check WAS FOUND")
