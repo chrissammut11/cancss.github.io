@@ -130,10 +130,10 @@ as the basis for this page -->
             selections: selection
         };
 
-            // console.log("THIS IS WHAT IS BEING SENT TO SendSelection function")
-            // console.log("selected rows: " + selectedRows);
-            // console.log("selection: " + selection);
-            // console.log("message: " + message);
+            console.log("THIS IS WHAT IS BEING SENT TO SendSelection function")
+            console.log("selected rows: " + selectedRows);
+            console.log("selection: " + selection);
+            console.log("message: " + message);
 
         sendMessage(message);
     }
@@ -183,7 +183,6 @@ as the basis for this page -->
         var tableBody = table.appendChild(document.createElement('tbody'));
 
         // Add remaining rows to table body
-        console.log("JsonData= "+jsonData);
         if (jsonData) {
             for (var i = 0; i < jsonData.length; i++) {
                     addDataRow(jsonData[i], lastColumnIsSelectionData);
@@ -216,8 +215,16 @@ as the basis for this page -->
             var checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.setAttribute('id', addDataRow.rowNum);
+
             checkbox.checked = false;
             checkbox.addEventListener('click', sendSelection); //this sends info;
+
+            console.log("Inside AddDataRow");
+            console.log("datafield is " +datafields);
+            console.log("first value is "+firstValue);
+            // checkbox.click();
+
+
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
             tr.appendChild(checkboxCell);
@@ -233,18 +240,8 @@ as the basis for this page -->
                 if (!isNaN(field)) {
                     td.className = 'numeric'; // Set numeric class to align numeric cells
                 }
-
-                console.log("check for equality: "+ field===firstValue);
-                if (field===firstValue) {
-                         checkbox.addEventListener('click', sendSelection); //this sends info;
-                         checkbox.click();
-                };
-
                 tr.appendChild(td);
-            })
-
-
-;
+            });
             tableBody.appendChild(tr);
         }
     }
@@ -286,10 +283,10 @@ as the basis for this page -->
     let firstValue = extractFirstValue(result);
     console.log(" The browser language is currently "+ firstValue)
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
-            firstRowCheckbox.checked = true; // Check the checkbox
-        });
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     let firstRowCheckbox = document.querySelector('#sample tr:first-child input[type="checkbox"]');
+        //     firstRowCheckbox.checked = true; // Check the checkbox
+        // });
 
         // if (firstValue="en-US") {
         //     console.log("I will click id1 at this point")
