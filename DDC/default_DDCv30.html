@@ -181,8 +181,9 @@ as the basis for this page -->
         if (jsonData) {
             for (var i = 0; i < jsonData.length; i++) {
                     var itemtoAdd = jsonData[i];
-                    console.log("itemtoAdd: "+itemtoAdd);
-                    // addDataRow(jsonData[i], lastColumnIsSelectionData);
+                    // console.log("itemtoAdd: "+itemtoAdd);
+                    var equality2 = (itemtoAdd==firstValue);
+                    addDataRow(jsonData[i], lastColumnIsSelectionData);
             }
         }
 
@@ -217,11 +218,12 @@ as the basis for this page -->
             checkbox.checked = false;
             checkbox.addEventListener('click', sendSelection); //this sends info;
 
-            console.log("Inside AddDataRow");
-            // console.log("datafield is " +datafields);
-            console.log("first value is "+firstValue);
-            // checkbox.click();
+            if (equality2) {
+              console.log("Equality is TRUE");
+              checkbox.click();
+            }
 
+            equality2 = false;
 
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
@@ -230,9 +232,9 @@ as the basis for this page -->
             // Add table cell for each data field
             dataFields.forEach(function (field, index) {
                 if (lastColumnIsSelectionData && index == dataFields.length - 1) {
-                    if (field > 0)
-                        checkbox.checked = true;
-                    return;
+                    // if (field > 0)
+                    //     checkbox.checked = true;
+                    // return;
                 }
                 var td = createElementWithText('td', field);
                 if (!isNaN(field)) {
