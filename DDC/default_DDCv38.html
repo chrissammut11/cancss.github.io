@@ -1,0 +1,100 @@
+<!--we used
+https://canada.viya4.sasdemo.ca/SASVisualAnalytics/resources/custom_table.html
+as the basis for this page -->
+<!doctype html>
+<html>
+<head>
+<title>SAS Visual Analytics Custom Data Table</title>
+</head>
+<body>
+
+<!-- <p>The data-driven content object enables you to incorporate your own content, like a calendar object, into a SAS Visual Analytics report.</p> -->
+</div><div id="sample"></div>
+<script>
+
+    /* EVENT HANDLERS */
+    var self = this;
+
+    // Retrieve data and begin processing
+    function onMessage(evt) {
+        if (evt && evt.data) {
+            var results = null;
+            var columnInfo = null;
+
+            self.resultName = evt.data.resultName;
+
+            if (evt.data.availableRowCount >= 0) {
+                results = evt.data;
+                columnInfo = evt.data.columns;
+            }
+            else if (evt.data.availableRowCount == -1) {
+                results = sampleData;
+                columnInfo = sampleColumnInfo;
+            }
+
+            if(results) {
+                // jsonToTable(columnInfo, results.data);
+                result = getBrowserLocales();
+                let firstValue = extractFirstValue(result);
+                var selection = []; 
+                console.log("the value of self result name "+self.resultName)               
+                for (let i=0; i < results.data.length; i++) {
+                                    if (results.data[i][0] == firstValue) {
+                                    selection.push({row: i});
+                }                    
+                }
+                var message = {
+                resultName: self.resultName,
+                selections: selection
+            };
+            console.log("the selection array "+selection)
+            console.log("the message is "+message)
+            sendMessage(message);
+                }
+        }
+    }
+
+    if (window.addEventListener) {
+        // For standards-compliant web browsers
+        window.addEventListener("message", onMessage, false);
+    } else {
+        window.attachEvent("onmessage", onMessage);
+    }
+</Script>
+
+<script>
+        function getBrowserLocales(options = {}) {
+                const defaultOptions = {
+                languageCodeOnly: false,
+                };
+                const opt = {
+                ...defaultOptions,
+                ...options,
+                };
+
+                const browserLocales =
+                navigator.languages === undefined
+                    ? [navigator.language]
+                    : navigator.languages;
+                if (!browserLocales) {
+                return undefined;
+                }
+
+                return browserLocales.map(locale => {
+                const trimmedLocale = locale.trim();
+                return opt.languageCodeOnly
+                    ? trimmedLocale.split(/-|_/)[0]
+                    : trimmedLocale;
+                });
+        } 
+
+        function extractFirstValue(inputString) {
+            inputString = String(inputString);
+            let values = inputString.split(",");
+                return values[0];
+            }
+</script>
+
+
+</body>
+</html>
