@@ -1,0 +1,295 @@
+<!--we used
+https://canada.viya4.sasdemo.ca/SASVisualAnalytics/resources/custom_table.html
+as the basis for this page -->
+<!doctype html><html><head><title>SAS Visual Analytics Custom Data Table</title>
+  <meta name="description" content="A simple HTML file for my DDC object.">
+  <script type="text/javascript" src="util/messagingUtil.js"></script>
+  <script type="text/javascript" src="util/jobExecutionUtil.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<style>body {
+            font-family: AvenirNext, Helvetica, Arial, sans-serif;
+            font-size: .8889rem;
+            background-color: #FFFFFF;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        th, td {
+            padding: 0.25rem .5rem;
+        }
+
+        tbody, tr + tr {
+            border-top: 1px solid rgb(231, 231, 231);
+        }
+
+        th + th, td + td {
+            border-left: 1px solid rgb(231, 231, 231);
+        }
+
+        .numeric {
+            text-align: right;
+        }
+
+        body::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        body::-webkit-scrollbar:horizontal {
+            height: 0.5em;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: darkgrey;
+            outline: 1px solid slategrey;
+        }
+
+        body::-webkit-scrollbar-button {
+            display: none;
+        }
+
+        #sample {
+            display: block;
+        }</style></head><body><div id="instruction">
+<!-- <p>The data-driven content object enables you to incorporate your own content, like a calendar object, into a SAS Visual Analytics report.</p> -->
+</div><div id="sample"></div><script>var sampleData = {data:[
+        ["Canada","North America",6,7.404,1.44015,1.0961,0.8276,0.5737,0.31329,0.44834,2.70485],
+        ["New Zealand","Australia and New Zealand",8,7.334,1.36066,1.17278,0.83096,0.58147,0.41904,0.49401,2.47553],
+        ["Australia","Australia and New Zealand",9,7.313,1.44443,1.10476,0.8512,0.56837,0.32331,0.47407,2.5465],
+        ["United States","North America",13,7.104,1.50796,1.04782,0.779,0.48163,0.14868,0.41077,2.72782],
+    ]};
+
+    /* EVENT HANDLERS */
+    var self = this;
+    var sampleColumnInfo = [{label: "Country", type: "string"},
+        {label: "Region", type: "string"},
+        {label: "Happiness Rank", type: "number"},
+        {label: "Happiness Score", type: "number"},
+        {label: "Economy (GDP per Capita)", type: "number"},
+        {label: "Family", type: "number"},
+        {label: "Health (Life Expectancy)", type: "number"},
+        {label: "Freedom", type: "number"},
+        {label: "Trust (Government Corruption)", type: "number"},
+        {label: "Generosity", type: "number"},
+        {label: "Dystopia Residual", type: "number"}
+    ];
+
+    // Retrieve data and begin processing
+    function onMessage(evt) {
+        if (evt && evt.data) {
+            var results = null;
+            var columnInfo = null;
+
+            self.resultName = evt.data.resultName;
+
+            if (evt.data.availableRowCount >= 0) {
+                results = evt.data;
+                columnInfo = evt.data.columns;
+            }
+            else if (evt.data.availableRowCount == -1) {
+                results = sampleData;
+                columnInfo = sampleColumnInfo;
+            }
+
+            if(results) {
+                jsonToTable(columnInfo, results.data);
+            }
+        }
+    }
+
+    
+    if (window.addEventListener) {
+        // For standards-compliant web browsers
+        window.addEventListener("message", onMessage, false);
+    } else {
+        window.attachEvent("onmessage", onMessage);
+    }
+
+    // Update the object's selection when a row is checked/unchecked
+    function sendSelection(evt) {
+        var selectedRows = document.querySelectorAll(':checked');
+        var selection = [];
+        for (var i = 0; i < selectedRows.length; i++)
+        {
+            var row = selectedRows[i];
+            selection.push({row: row.id});
+        }
+
+        var message = {
+            resultName: self.resultName,
+            selections: selection
+        };
+
+        // sendMessage(message);
+    }
+
+    function sendMessage(message)
+    {
+        var url = (window.location != window.parent.location)
+            ? document.referrer
+            : document.location.href;
+
+        console.log("selection message is "+message);
+        console.log("URL is "+url);
+        window.parent.postMessage(message, url);
+    }
+
+    /*  TABLE CREATION  */
+
+    // Create an HTML DOM element of the given type containing the given text
+    function createElementWithText(element, text) {
+        var e = document.createElement(element);
+        e.appendChild(document.createTextNode(text));
+        return e;
+    }
+    
+    // Process the array of CSV data and create a table
+    function jsonToTable(columnInfo, jsonData) {
+
+        // Create table
+        var tableDivId = 'sample'; // identifier for the table's parent/container
+        var tableDiv = document.getElementById(tableDivId);
+
+        // If a table already exists in our custom div, remove it
+        tableDiv.innerHTML = "";
+
+        var table = tableDiv.appendChild(document.createElement('table'));
+        var lastColumnIsSelectionData = false;
+        // Create headers from column info
+        addHeaderRow(columnInfo.filter(function (c) {
+            if (c.usage == "brush") {
+                lastColumnIsSelectionData = true;
+                return false;
+            }
+            return true;
+        }).map(function (c) {
+            return c.label;
+        }));
+
+        // Create table body for incoming data
+        var tableBody = table.appendChild(document.createElement('tbody'));
+
+        // Add remaining rows to table body
+        if (jsonData) {
+            for (var i = 0; i < jsonData.length; i++) {
+                addDataRow(jsonData[i], lastColumnIsSelectionData);
+            }
+        }
+
+        // Append a header row to the table
+        function addHeaderRow(columnLabels) {
+            // Create table row
+            var tableHead = document.createElement('thead');
+            var tr = document.createElement('tr');
+
+            // Add a blank cell for checkbox/selection column
+            tr.appendChild(document.createElement('th'));
+            tr.appendChild(createElementWithText('th', 'Input by User'));
+
+            // Add a header cell for each column heading
+            columnLabels.forEach(function (header) {
+                tr.appendChild(createElementWithText('th', header));
+            });
+            tableHead.appendChild(tr);
+            table.appendChild(tableHead);
+        }
+
+        // Append a data row to the table
+        function addDataRow(dataFields, lastColumnIsSelectionData) {
+            addDataRow.rowNum = ++addDataRow.rowNum || 0;
+            var tr = document.createElement('tr');
+
+            // Add a checkbox/selector with ID to each row
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.setAttribute('id', addDataRow.rowNum);
+            checkbox.addEventListener('click', sendSelection);
+            var checkboxCell = document.createElement('td');
+            checkboxCell.appendChild(checkbox);
+            // tr.appendChild(checkboxCell);
+
+            var inputbox = document.createElement('input');
+            inputbox.type = 'text';
+            inputbox.setAttribute('id',"input"+addDataRow.rowNum);
+            var inputboxCell = document.createElement('td');
+            inputboxCell.appendChild(inputbox);
+            tr.appendChild(inputboxCell);
+
+            // Add table cell for each data field
+            dataFields.forEach(function (field, index) {
+                if (lastColumnIsSelectionData && index == dataFields.length - 1) {
+                    if (field > 0)
+                        checkbox.checked = true;
+                    return;
+                }
+                var td = createElementWithText('td', field);
+                if (!isNaN(field)) {
+                    td.className = 'numeric'; // Set numeric class to align numeric cells
+                }
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        }
+    }
+</script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+    let data_temp=[]
+    function onDataReceived(resultData) {
+        if (!resultData) return;
+
+        data_temp = resultData["data"]
+        console.log("data_temp="+data_temp);
+        // let va_data = []
+
+        // for (let i = 0; i < resultData["availableRowCount"]; i++){
+        // let temp_dict = {};
+        //   for (let j=0; j < data_temp.length; j++){
+        //      temp_dict[resultData["columns"][j]["label"]]=data_temp[j][0]
+        //   }
+        // console.log("temp dict="+temp_dict)
+        // va_data.push(temp_dict);
+        // }
+
+        // console.log("va_data"+va_data)
+        // SubmitForm(va_data);
+    }
+
+function SubmitForm(input_data) {
+    const displayForm = (input_data) => {
+      // Generate the different form elements using the VA data
+      console.log("the va_data is " + input_data)
+      const formElements = input_data.columns.map(() => {
+        let msg=" "
+        return msg;
+      })
+      formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Save Selections</button></div>')
+      $("#evaluation").html(formElements.join(""))
+      $("#submitButton").on("click", (event) => {
+        event.preventDefault()
+        const url = "https://canada.viya4.sasdemo.ca"
+        const parameters = {
+          "_program": "/Public/ChrisS/CRA/save_data_from_VA",
+        }
+
+        executeJob(url, input_data, parameters).then(response => console.log(response))
+
+      })
+    }
+
+    va.messagingUtil.setOnDataReceivedCallback(displayForm)
+}
+  </script>
+
+
+</body>
+</html>
