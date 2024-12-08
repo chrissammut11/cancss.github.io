@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Row Selection with Input</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        tr.selected {
+            background-color: #f2f2f2;
+        }
+        .additional-info {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Table Rows and Add Information</h1>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Company Name</th>
+                <th>Tax Year</th>
+                <th>Additional Info</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>F Scott's Scotch</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="">--select--</option>
+                        <option value="low">Low</option>
+                        <option value="med">Med</option>
+                        <option value="high">High</option>
+                    </select></td>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Hindle Swindler</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="">--select--</option>
+                        <option value="low">Low</option>
+                        <option value="med">Med</option>
+                        <option value="high">High</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Sammut Rent-a-Goalie</td>
+                <td>2022</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="">--select--</option>
+                        <option value="low">Low</option>
+                        <option value="med">Med</option>
+                        <option value="high">High</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Jariwala Fine Foods</td>
+                <td>2024</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="">--select--</option>
+                        <option value="low">Low</option>
+                        <option value="med">Med</option>
+                        <option value="high">High</option>
+                    </select></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="submitSelections()">Submit Selections</button>
+
+    <script>
+        function submitSelections() {
+            const selectedRows = [];
+            const checkboxes = document.querySelectorAll('.row-select:checked');
+            checkboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const rowData = {
+                    company: row.cells[1].innerText,
+                    tax_year: row.cells[2].innerText,
+                    additionalInfo: row.querySelector('.additional-info').value,
+                    priority: row.querySelector('.priority').value
+                };
+                selectedRows.push(rowData);
+            });
+            console.log('Selected Rows:', selectedRows);
+            // Further processing can be done here, e.g., sending data to a server
+        }
+    </script>
+</body>
+</html>
