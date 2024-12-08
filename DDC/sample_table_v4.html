@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Row Selection with Input</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        tr.selected {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Table Rows and Add Information</h1>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Additional Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>John Doe</td>
+                <td>30</td>
+                <td>New York</td>
+                <td><input type="text" class="additional-info" placeholder="Enter info"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Jane Smith</td>
+                <td>25</td>
+                <td>Los Angeles</td>
+                <td><input type="text" class="additional-info" placeholder="Enter info"></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Mike Johnson</td>
+                <td>35</td>
+                <td>Chicago</td>
+                <td><input type="text" class="additional-info" placeholder="Enter info"></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="submitSelections()">Submit Selections</button>
+
+    <script>
+        function submitSelections() {
+            const selectedRows = [];
+            const checkboxes = document.querySelectorAll('.row-select:checked');
+            checkboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const rowData = {
+                    name: row.cells[1].innerText,
+                    age: row.cells[2].innerText,
+                    city: row.cells[3].innerText,
+                    additionalInfo: row.querySelector('.additional-info').value
+                };
+                selectedRows.push(rowData);
+            });
+            console.log('Selected Rows:', selectedRows);
+            // Further processing can be done here, e.g., sending data to a server
+        }
+    </script>
+</body>
+</html>
