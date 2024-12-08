@@ -66,10 +66,8 @@ body {
             display: block;
         }</style></head>
 <body>
-</body>
-
 <form id="evaluation" class="container"></form>
-  <script>
+<script>
 
     document.addEventListener('DOMContentLoaded', function () {
             va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
@@ -170,6 +168,8 @@ body {
         // Create table
         var tableDivId = 'sample'; // identifier for the table's parent/container
         var tableDiv = document.getElementById(tableDivId);
+
+        console.log("tablediv "+tableDiv);
 
         // If a table already exists in our custom div, remove it
         tableDiv.innerHTML = "sample";
@@ -276,4 +276,5 @@ function SubmitForm(input_data) {
 }
 
 </script>
+</body>
 </html>
