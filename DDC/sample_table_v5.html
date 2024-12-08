@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Row Selection</title>
+    <title>Table Row Selection with Input</title>
     <style>
         table {
             width: 100%;
@@ -16,49 +16,43 @@
         tr.selected {
             background-color: #f2f2f2;
         }
-        .custom-input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-size: 16px;
-        }
     </style>
 </head>
 <body>
-    <h1>Select Table Rows</h1>
+    <h1>Select Table Rows and Add Information</h1>
     <table id="myTable">
         <thead>
             <tr>
                 <th>Select</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>City</th>
-                <th>Add Comments</th>
+                <th>Company Name</th>
+                <th>Tax Year</th>
+                <th>Additional Info</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input type="checkbox" class="row-select"></td>
-                <td>John Doe</td>
-                <td>30</td>
-                <td>New York</td>
-                <td><input id='inp1' type="text" class="custom-input"></td>
+                <td>F Scott's Scotch</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
             </tr>
             <tr>
                 <td><input type="checkbox" class="row-select"></td>
-                <td>Jane Smith</td>
-                <td>25</td>
-                <td>Los Angeles</td>
-                <td><input id='inp2' type="text" class="custom-input"></td>
+                <td>Hindle Swindler</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
             </tr>
             <tr>
                 <td><input type="checkbox" class="row-select"></td>
-                <td>Mike Johnson</td>
-                <td>35</td>
-                <td>Chicago</td>
-                <td><input id='inp3' type="text" class="custom-input"></td>
+                <td>Sammut Rent-a-Goalie</td>
+                <td>2022</td>
+                <td><input type="text" class="additional-info" ></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Jariwala Fine Foods</td>
+                <td>2024</td>
+                <td><input type="text" class="additional-info" ></td>
             </tr>
         </tbody>
     </table>
@@ -74,7 +68,7 @@
                     name: row.cells[1].innerText,
                     age: row.cells[2].innerText,
                     city: row.cells[3].innerText,
-                    comment: row.cells[4].innerText
+                    additionalInfo: row.querySelector('.additional-info').value
                 };
                 selectedRows.push(rowData);
             });
