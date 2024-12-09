@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Row Selection with Input</title>
+  <script type="text/javascript" src="util/messagingUtil.js"></script>
+  <script type="text/javascript" src="util/jobExecutionUtil.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        tr.selected {
+            background-color: #f2f2f2;
+        }
+        .additional-info {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Table Rows and Add Information</h1>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Company Name</th>
+                <th>Tax Year</th>
+                <th>Agent Comments</th>
+                <th>Risk Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>F Scott's Scotch</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="0">--select--</option>
+                        <option value="1">Low</option>
+                        <option value="2">Med</option>
+                        <option value="3">High</option>
+                    </select></td>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Hindle Swindler</td>
+                <td>2023</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="0">--select--</option>
+                        <option value="1">Low</option>
+                        <option value="2">Med</option>
+                        <option value="3">High</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Sammut Rent-a-Goalie</td>
+                <td>2022</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="0">--select--</option>
+                        <option value="1">Low</option>
+                        <option value="2">Med</option>
+                        <option value="3">High</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="row-select"></td>
+                <td>Jariwala Fine Foods</td>
+                <td>2024</td>
+                <td><input type="text" class="additional-info" ></td>
+                <td><select class="priority">
+                        <option value="0">--select--</option>
+                        <option value="1">Low</option>
+                        <option value="2">Med</option>
+                        <option value="3">High</option>
+                    </select></td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="submitSelections()">Submit Selections</button>
+
+    <script>
+        function submitSelections() {
+            const selectedRows = [];
+            const checkboxes = document.querySelectorAll('.row-select:checked');
+            checkboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const rowData = {
+                    company: row.cells[1].innerText,
+                    tax_year: row.cells[2].innerText,
+                    agent_comments: row.querySelector('.additional-info').value,
+                    risk_status: row.querySelector('.priority').value
+                };
+                selectedRows.push(rowData);
+            });
+            console.log('Selected Rows:', selectedRows);
+            // Further processing can be done here, e.g., sending data to a server
+        }
+
+    document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
+    let data_temp=[]
+    function onDataReceived(resultData) {
+        if (!resultData) return;
+
+        data_temp = resultData["data"]
+        console.log("result data = "+resultData)
+        // v0_label = String(resultData["columns"][0]["label"])
+        // v1_label = String(resultData["columns"][1]["label"])
+        // v2_label = String(resultData["columns"][2]["label"])
+        // console.log("v0="+v0_label)
+        // console.log("v1="+v1_label)
+        // console.log("v2="+v2_label)
+        let va_data = []
+
+        // for (let i = 0; i < resultData["availableRowCount"]; i++){
+        // let temp_dict = {};
+        //   for (let j=0; j < data_temp.length; j++){
+        //      temp_dict[resultData["columns"][j]]=data_temp[j]
+        //   }
+        // console.log("temp dict="+temp_dict)
+        // va_data.push(temp_dict);
+        // }
+        va_data = selectedRows;
+        console.log("va_data"+va_data)
+        // SubmitForm(va_data);
+    }
+
+</script>
+</body>
+</html>
