@@ -299,7 +299,14 @@ var sampleData = {data:[
                 values.push(input.value);
             }
 
-            console.log("values="+values[4]); // You can process the values as needed
+            const selects = table.getElementsByTagName('select');
+            const selectedValues = [];
+
+            for (let select of selects) {
+                selectedValues.push(select.value);
+            }
+
+            console.log("select="+typeof selectedValues); // You can process the values as needed
 
             const selectedRows = [];
             const checkboxes = document.querySelectorAll('.row-select:checked');
@@ -308,7 +315,8 @@ var sampleData = {data:[
                 const rowData = {
                     var1: row.cells[1].innerText,
                     var2: row.cells[2].innerText,
-                    var3: String(values[3])
+                    var3: String(values[3]),
+                    var4: String(selectedValues.cells[4])
                 };
                 selectedRows.push(rowData);
             });
