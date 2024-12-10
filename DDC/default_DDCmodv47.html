@@ -104,6 +104,7 @@ var sampleData = {data:[
     ];
 
     // Retrieve data and begin processing
+    let columnNames=[];
     function onMessage(evt) {
         if (evt && evt.data) {
             var results = null;
@@ -114,8 +115,8 @@ var sampleData = {data:[
                 results = evt.data;
                 columnInfo = evt.data.columns;
                 
-                evt.data.columns.push({"name":"bi901","label":"add_notes","type":"string","class":"additional-info"});
-                evt.data.columns.push({"name":"bi902","label":"add_status","type":"string"});
+                evt.data.columns.push({"name":"bi998","label":"add_notes","type":"string","class":"additional-info"});
+                evt.data.columns.push({"name":"bi997","label":"add_status","type":"string"});
                 
             }
             else if (evt.data.availableRowCount == -1) {
@@ -123,23 +124,11 @@ var sampleData = {data:[
                 columnInfo = sampleColumnInfo;
             }
 
-          function getLabelByName(columns, name) {
-                for (let x of columns) {
-                    if (x.name === name) {
-                        return x.label;
-                    }
-                }
-                return null; // Return null if the column is not found
-            }
-
-            // Example usage
-            var label1 = getLabelByName(evt.data.columns, "bi901");
-            var label2 = getLabelByName(evt.data.columns, "bi902");
-            console.log("Column Info ", columnInfo);
-            console.log("Label for bi901:", label1); // Output: add_notes
-            console.log("Label for bi902:", label2); // Output: add_status
-
             if(results) {
+                for (let i=0; i<results.data.length; i++) {
+                    columnNames.push(evt.data.columns[i]["label"][0]);
+                }
+                console.log("column names="+columnNames);
                 jsonToTable(columnInfo, results.data);
             }
         }
@@ -281,7 +270,7 @@ var sampleData = {data:[
             var selectbox = document.createElement('select');
             selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
 
-            var options = ['','1', '2', '3'];
+            var options = [' ','1', '2', '3'];
             options.forEach(function(optionText) {
             var option = document.createElement('option');
             option.value = optionText.toLowerCase().replace(' ', '-');
@@ -327,8 +316,8 @@ var sampleData = {data:[
                 const rowData = {
                     Ccompany: row.cells[1].innerText,
                     Ntax_year: row.cells[2].innerText,
-                    Cagent_comment: String(notevalues[i]),
-                    Nagent_rating: String(selectedValues[i])
+                    Cnotes: String(notevalues[i]),
+                    Nstatus: String(selectedValues[i])
                 };
                 selectedRows.push(rowData);
             i++;
