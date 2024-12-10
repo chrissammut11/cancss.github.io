@@ -317,18 +317,19 @@ var sampleData = {data:[
                     var1: row.cells[1].innerText,
                     var2: row.cells[2].innerText
                 };
-            for (let i=0; i< values.length; i++) {
-                    console.log("values="+(values[i]));
-                    console.log("Selected values="+(selectedValues[i]));
-
-                    rowData.var3 = String(values[i]);
-                    rowData.var4 = String(selectedValues[i]);
-            }
                 console.log("rowdata="+rowData);
-
-
                 selectedRows.push(rowData);
             });
+
+            // for (let i=0; i< values.length; i++) {
+            //         console.log("values="+(values[i]));
+            //         console.log("Selected values="+(selectedValues[i]));
+
+            //         rowData.var3 = String(values[i]);
+            //         rowData.var4 = String(selectedValues[i]);
+            //     selectedRows.push(rowData);
+            // }
+
             console.log('Selected Rows:', selectedRows);
 
             // Further processing can be done here, e.g., sending data to a server
