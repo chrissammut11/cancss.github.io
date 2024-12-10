@@ -265,7 +265,7 @@ var sampleData = {data:[
             var selectbox = document.createElement('select');
             selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
 
-            var options = ['1', '2', '3'];
+            var options = ['','1', '2', '3'];
             options.forEach(function(optionText) {
             var option = document.createElement('option');
             option.value = optionText.toLowerCase().replace(' ', '-');
@@ -306,6 +306,10 @@ var sampleData = {data:[
             const selectedRows = []; //this is var1, var2, etc
             const checkboxes = document.querySelectorAll('.row-select:checked');
             let i = 0;
+            let var1 = "Company";
+            let var2 = "Tax Year";
+            let var3 = "Agent Comment";
+            let var4 = "Agent Rating";
             checkboxes.forEach(checkbox => {
                 const row = checkbox.closest('tr');
                 const rowData = {
@@ -321,9 +325,9 @@ var sampleData = {data:[
             console.log('Selected Rows:', selectedRows);
             // SubmitForm(selectedRows);
 
-            const url = "https://cisviya.sas.com"
+            const url = "https://canada.viya4.sasdemo.ca"
             const parameters = {
-            "_program": "/Public/ChrisSammut/save_data_from_VA",
+            "_program": "/Public/ChrisS/CRA/save_data_from_VA",
             }
          executeJob(url, selectedRows, parameters).then(response => console.log(response))
     }
