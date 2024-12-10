@@ -50,7 +50,19 @@ as the basis for this page -->
 
         #sample {
             display: block;
-        }</style></head><body><div id="instruction">
+        }
+        .additional-info {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+</style>
+</head>
+<body>
+<div id="instruction">
 <!-- <p>The data-driven content object enables you to incorporate your own content, like a calendar object, into a SAS Visual Analytics report.</p> -->
 </div><div id="sample"></div><script>var sampleData = {data:[
         ["Denmark","Western Europe",1,7.526,1.44178,1.16374,0.79504,0.57941,0.44453,0.36171,2.73939],
@@ -90,12 +102,21 @@ as the basis for this page -->
         if (evt && evt.data) {
             var results = null;
             var columnInfo = null;
-
+            console.log("evt.data="+evt.data);
             self.resultName = evt.data.resultName;
 
             if (evt.data.availableRowCount >= 0) {
                 results = evt.data;
                 columnInfo = evt.data.columns;
+                
+                let columnsONLY = Object.values(evt.data.columns[0]);
+                console.log("column ONLY ="+columnsONLY);
+                evt.data.columns.push({"name":"bi998","label":"add_notes","type":"string","class":"additional-info"});
+                let columnsONLY_1 = Object.values(evt.data.columns[1]);
+                console.log("column1 ONLY ="+columnsONLY_1);
+                let columnsONLY_2 = Object.values(evt.data.columns[2]);
+                console.log("column2 ONLY ="+columnsONLY_2);
+                
             }
             else if (evt.data.availableRowCount == -1) {
                 results = sampleData;
@@ -164,8 +185,6 @@ as the basis for this page -->
 
         var table = tableDiv.appendChild(document.createElement('table'));
         var lastColumnIsSelectionData = false;
-        console.log("columninfo ="+columnInfo);
-        console.log("type of columninfo ="+typeof columnInfo);
         // Create headers from column info
         addHeaderRow(columnInfo.filter(function (c) {
             if (c.usage == "brush") {
@@ -174,9 +193,6 @@ as the basis for this page -->
             }
             return true;
         }).map(function (c) {
-            console.log("label="+c.label);
-            console.log("type of label="+typeof c.label);
-            
             return c.label;
         }));
 
@@ -218,6 +234,7 @@ as the basis for this page -->
             var checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
             checkbox.setAttribute('id', addDataRow.rowNum);
+            checkbox.setAttribute('class', 'row-select');
             checkbox.addEventListener('click', sendSelection);
             
             var checkboxCell = document.createElement('td');
@@ -247,4 +264,64 @@ as the basis for this page -->
 
             tableBody.appendChild(tr);
         }
-    }</script></body></html>
+    }
+</script>
+
+    <button onclick="submitSelections()">Submit Selections</button>
+
+    <script>
+        function submitSelections() {
+            const selectedRows = [];
+            const checkboxes = document.querySelectorAll('.row-select:checked');
+            checkboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const rowData = {
+                    company: row.cells[1].innerText,
+                    tax_year: row.cells[2].innerText
+                    // ,
+                    // agent_comments: row.querySelector('.additional-info').value,
+                    // risk_status: row.querySelector('.priority').value
+                };
+                selectedRows.push(rowData);
+            });
+            console.log('Selected Rows:', selectedRows);
+            // Further processing can be done here, e.g., sending data to a server
+            // document.addEventListener('DOMContentLoaded', function () {
+            //     va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+            //     });
+            // onDataReceived(selectedRows);
+
+        }
+
+    function onDataReceived(resultData) {
+        let data_temp=[];
+        if (!resultData) return;
+
+        data_temp = resultData["data"]
+        console.log("result data = "+resultData)
+        // v0_label = String(resultData["columns"][0]["label"])
+        // v1_label = String(resultData["columns"][1]["label"])
+        // v2_label = String(resultData["columns"][2]["label"])
+        // console.log("v0="+v0_label)
+        // console.log("v1="+v1_label)
+        // console.log("v2="+v2_label)
+        let va_data = []
+
+        // for (let i = 0; i < resultData["availableRowCount"]; i++){
+        // let temp_dict = {};
+        //   for (let j=0; j < data_temp.length; j++){
+        //      temp_dict[resultData["columns"][j]]=data_temp[j]
+        //   }
+        // console.log("temp dict="+temp_dict)
+        // va_data.push(temp_dict);
+        // }
+        console.log("va_data"+va_data)
+        // SubmitForm(va_data);
+    }
+
+</script>
+
+
+
+</body>
+</html>
