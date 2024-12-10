@@ -236,6 +236,7 @@ as the basis for this page -->
             checkbox.setAttribute('id', addDataRow.rowNum);
             checkbox.setAttribute('class', 'row-select');
             checkbox.addEventListener('click', sendSelection);
+            checkbox.checked = true;
             
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
@@ -278,8 +279,7 @@ as the basis for this page -->
                 const rowData = {
                     var1: row.cells[1].innerText,
                     var2: row.cells[2].innerText,
-                    var3: row.cells[3].innerText
-                    // agent_comments: row.querySelector('.additional-info').value,
+                    var3: row.querySelector('.additional-info').value
                     // risk_status: row.querySelector('.priority').value
                 };
                 selectedRows.push(rowData);
