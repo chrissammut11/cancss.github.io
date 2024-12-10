@@ -104,21 +104,14 @@ var sampleData = {data:[
         if (evt && evt.data) {
             var results = null;
             var columnInfo = null;
-            console.log("evt.data="+evt.data);
             self.resultName = evt.data.resultName;
 
             if (evt.data.availableRowCount >= 0) {
                 results = evt.data;
                 columnInfo = evt.data.columns;
                 
-                let columnsONLY = Object.values(evt.data.columns[0]);
-                console.log("column ONLY ="+columnsONLY);
                 evt.data.columns.push({"name":"bi998","label":"add_notes","type":"string","class":"additional-info"});
                 evt.data.columns.push({"name":"bi997","label":"add_status","type":"string"});
-                let columnsONLY_1 = Object.values(evt.data.columns[1]);
-                console.log("column1 ONLY ="+columnsONLY_1);
-                let columnsONLY_2 = Object.values(evt.data.columns[2]);
-                console.log("column2 ONLY ="+columnsONLY_2);
                 
             }
             else if (evt.data.availableRowCount == -1) {
@@ -127,7 +120,6 @@ var sampleData = {data:[
             }
 
             if(results) {
-                console.log("results.data="+results.data);
                 jsonToTable(columnInfo, results.data);
             }
         }
@@ -293,78 +285,75 @@ var sampleData = {data:[
 
             const table = document.getElementById('sample');
             const inputs = table.getElementsByTagName('input');
-            const values = [];
+            const nonCheckboxInputs = Array.from(inputs).filter(input => input.type !== 'checkbox');
+            const notevalues = []; //this is the notes note1 and note2
 
-            for (let input of inputs) {
-                values.push(input.value);
+            for (let j of nonCheckboxInputs) {
+                notevalues.push(j.value);
             }
 
             const selects = table.getElementsByTagName('select');
-            const selectedValues = [];
+            const selectedValues = []; //this is the dropdown values 2 and 3
 
             for (let select of selects) {
                 selectedValues.push(select.value);
             }
 
-            console.log("select="+selectedValues); // You can process the values as needed
-            console.log("select type="+typeof selectedValues); // You can process the values as needed
-
-            const selectedRows = [];
+            const selectedRows = []; //this is var1, var2, etc
             const checkboxes = document.querySelectorAll('.row-select:checked');
+            let i = 0;
             checkboxes.forEach(checkbox => {
                 const row = checkbox.closest('tr');
                 const rowData = {
                     var1: row.cells[1].innerText,
-                    var2: row.cells[2].innerText
+                    var2: row.cells[2].innerText,
+                    var3: String(notevalues[i]),
+                    var4: String(selectedValues[i])
                 };
-                console.log("rowdata="+rowData);
                 selectedRows.push(rowData);
+            i++;
             });
 
-            // for (let i=0; i< values.length; i++) {
-            //         console.log("values="+(values[i]));
-            //         console.log("Selected values="+(selectedValues[i]));
-
-            //         rowData.var3 = String(values[i]);
-            //         rowData.var4 = String(selectedValues[i]);
-            //     selectedRows.push(rowData);
-            // }
-
-            console.log('Selected Rows:', selectedRows);
-
-            // Further processing can be done here, e.g., sending data to a server
-            // document.addEventListener('DOMContentLoaded', function () {
-            //     va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
-            //     });
-            // onDataReceived(selectedRows);
-
+            //console.log('Selected Rows:', selectedRows);
+            return selectedRows;
         }
 
+    document.addEventListener('DOMContentLoaded', function () {
+            va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+        });
+
     function onDataReceived(resultData) {
-        let data_temp=[];
         if (!resultData) return;
-
-        data_temp = resultData["data"]
-        console.log("result data = "+resultData)
-        // v0_label = String(resultData["columns"][0]["label"])
-        // v1_label = String(resultData["columns"][1]["label"])
-        // v2_label = String(resultData["columns"][2]["label"])
-        // console.log("v0="+v0_label)
-        // console.log("v1="+v1_label)
-        // console.log("v2="+v2_label)
-        let va_data = []
-
-        // for (let i = 0; i < resultData["availableRowCount"]; i++){
-        // let temp_dict = {};
-        //   for (let j=0; j < data_temp.length; j++){
-        //      temp_dict[resultData["columns"][j]]=data_temp[j]
-        //   }
-        // console.log("temp dict="+temp_dict)
-        // va_data.push(temp_dict);
-        // }
+        va_data = submitSelections();
         console.log("va_data"+va_data)
         // SubmitForm(va_data);
     }
+
+function SubmitForm(input_data) {
+    const displayForm = (input_data) => {
+      // Generate the different form elements using the VA data
+      console.log("the va_data is " + input_data)
+      const formElements = input_data.columns.map(() => {
+        let msg=" "
+        return msg;
+      })
+      formElements.push('<div class="row m-3"><button id="submitButton" type="submit" class="col btn btn-primary">Save Selections</button></div>')
+      $("#evaluation").html(formElements.join(""))
+      $("#submitButton").on("click", (event) => {
+        event.preventDefault()
+        const url = "https://canada.viya4.sasdemo.ca"
+        const parameters = {
+          "_program": "/Public/ChrisS/IRCC_va/save_data_from_VA",
+        }
+
+        executeJob(url, input_data, parameters).then(response => console.log(response))
+
+      })
+    }
+
+    va.messagingUtil.setOnDataReceivedCallback(displayForm)
+}
+
 
 </script>
 
