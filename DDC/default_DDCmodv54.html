@@ -76,6 +76,9 @@ as the basis for this page -->
 
         @keyframes spin {
             0% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            50% { transform: rotate(180deg); }
+            75% { transform: rotate(270deg); }
             100% { transform: rotate(360deg); }
         }
 </style>
@@ -88,21 +91,7 @@ as the basis for this page -->
 <script>
 
 var sampleData = {data:[
-        ["Denmark","Western Europe",1,7.526,1.44178,1.16374,0.79504,0.57941,0.44453,0.36171,2.73939],
-        ["Switzerland","Western Europe",2,7.509,1.52733,1.14524,0.86303,0.58557,0.41203,0.28083,2.69463],
-        ["Iceland","Western Europe",3,7.501,1.42666,1.18326,0.86733,0.56624,0.14975,0.47678,2.83137],
-        ["Norway","Western Europe",4,7.498,1.57744,1.1269,0.79579,0.59609,0.35776,0.37895,2.66465],
-        ["Finland","Western Europe",5,7.413,1.40598,1.13464,0.81091,0.57104,0.41004,0.25492,2.82596],
         ["Canada","North America",6,7.404,1.44015,1.0961,0.8276,0.5737,0.31329,0.44834,2.70485],
-        ["Netherlands","Western Europe",7,7.339,1.46468,1.02912,0.81231,0.55211,0.29927,0.47416,2.70749],
-        ["New Zealand","Australia and New Zealand",8,7.334,1.36066,1.17278,0.83096,0.58147,0.41904,0.49401,2.47553],
-        ["Australia","Australia and New Zealand",9,7.313,1.44443,1.10476,0.8512,0.56837,0.32331,0.47407,2.5465],
-        ["Sweden","Western Europe",10,7.291,1.45181,1.08764,0.83121,0.58218,0.40867,0.38254,2.54734],
-        ["Israel","Middle East and Northern Africa",11,7.267,1.33766,0.99537,0.84917,0.36432,0.08728,0.32288,3.31029],
-        ["Austria","Western Europe",12,7.119,1.45038,1.08383,0.80565,0.54355,0.21348,0.32865,2.69343],
-        ["United States","North America",13,7.104,1.50796,1.04782,0.779,0.48163,0.14868,0.41077,2.72782],
-        ["Costa Rica","Latin America and Caribbean",14,7.087,1.06879,1.02152,0.76146,0.55225,0.10547,0.22553,3.35168],
-        ["Puerto Rico","Latin America and Caribbean",15,7.039,1.35943,1.08113,0.77758,0.46823,0.12275,0.22202,3.0076]
     ]};
 
     /* EVENT HANDLERS */
@@ -132,8 +121,9 @@ var sampleData = {data:[
                 results = evt.data;
                 columnInfo = evt.data.columns;
                 
-                evt.data.columns.push({"name":"bi998","label":"Notes","type":"string","class":"additional-info"});
-                evt.data.columns.push({"name":"bi997","label":"Status","type":"string"});
+                //Add any input/select columns here start with bi901
+                evt.data.columns.push({"name":"bi901","label":"Notes","type":"string","class":"additional-info"});
+                evt.data.columns.push({"name":"bi902","label":"Status","type":"string"});
                 
             }
             else if (evt.data.availableRowCount == -1) {
@@ -182,7 +172,6 @@ var sampleData = {data:[
     }
 
     /*  TABLE CREATION  */
-
     // Create an HTML DOM element of the given type containing the given text
     function createElementWithText(element, text) {
         var e = document.createElement(element);
@@ -254,6 +243,7 @@ var sampleData = {data:[
             checkbox.setAttribute('class', 'row-select');
             checkbox.addEventListener('click', sendSelection);
             checkbox.checked = true;
+            checkbox.hidden = true;
             
             var checkboxCell = document.createElement('td');
             checkboxCell.appendChild(checkbox);
@@ -272,6 +262,8 @@ var sampleData = {data:[
                 }
                 tr.appendChild(td);
             });
+
+            //Add your own input/select elements and text below here
             var inputbox = document.createElement('input');
             inputbox.type = 'text';
             inputbox.setAttribute('id', 'text'+addDataRow.rowNum);
@@ -283,12 +275,13 @@ var sampleData = {data:[
             var selectbox = document.createElement('select');
             selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
 
-            var options = [' ','1', '2', '3'];
-            var optionArray = ['--select--','Low','Med','High'];
+            // code to add options to the selectbox element
+            var options = [' ','1', '2', '3']; //these will be the numeric values passed
+            var optionArray = ['--select--','Low','Med','High']; //these are the options displayed
             options.forEach(function(optionText, index) {
             var option = document.createElement('option');
             option.value = optionText.toLowerCase().replace(' ', '-');
-            option.text = optionArray[index]; //optionText;
+            option.text = optionArray[index]; //optionText-this was the default;
             selectbox.appendChild(option);
             });
 
@@ -343,10 +336,10 @@ var sampleData = {data:[
             console.log('Selected Rows:', selectedRows);
             // SubmitForm(selectedRows);
 
-            const url = "https://canada.viya4.sasdemo.ca"
+            const url = "https://canada.viya4.sasdemo.ca" //this is the url of the viya server
             const parameters = {
             "_program": "/Public/ChrisS/CRA/save_data_from_VA",
-            }
+            } //this is the path and the name of the sas job definition
          executeJob(url, selectedRows, parameters).then(response => console.log(response))
     }
 
