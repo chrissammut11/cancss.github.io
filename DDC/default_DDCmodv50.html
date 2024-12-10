@@ -63,12 +63,29 @@ as the basis for this page -->
             box-sizing: border-box;
             font-size: 16px;
         }
+        /* Style for the loading spinner */
+        .spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 </style>
 </head>
 <body>
 <div id="instruction">
 <!-- <p>The data-driven content object enables you to incorporate your own content, like a calendar object, into a SAS Visual Analytics report.</p> -->
-</div><div id="sample"></div><script>
+</div><div id="sample"></div>
+<form id="myForm">
+<script>
 
 var sampleData = {data:[
         ["Denmark","Western Europe",1,7.526,1.44178,1.16374,0.79504,0.57941,0.44453,0.36171,2.73939],
@@ -125,10 +142,6 @@ var sampleData = {data:[
             }
 
             if(results) {
-                for (let i=0; i<results.data.length; i++) {
-                    columnNames.push(evt.data.columns[i]["label"][0]);
-                }
-                console.log("column names="+columnNames);
                 jsonToTable(columnInfo, results.data);
             }
         }
@@ -270,7 +283,7 @@ var sampleData = {data:[
             var selectbox = document.createElement('select');
             selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
 
-            var options = ['1', '2', '3'];
+            var options = [' ','1', '2', '3'];
             options.forEach(function(optionText) {
             var option = document.createElement('option');
             option.value = optionText.toLowerCase().replace(' ', '-');
@@ -288,6 +301,9 @@ var sampleData = {data:[
 </script>
 
     <button onclick="submitSelections()">Submit Selections</button>
+</form>
+
+<div class="spinner" id="spinner"></div>
 
     <script>
         function submitSelections() {
@@ -314,10 +330,10 @@ var sampleData = {data:[
             checkboxes.forEach(checkbox => {
                 const row = checkbox.closest('tr');
                 const rowData = {
-                    var1: row.cells[1].innerText,
-                    var2: row.cells[2].innerText,
-                    var3: String(notevalues[i]),
-                    var4: String(selectedValues[i])
+                    Ccompany: row.cells[1].innerText,
+                    Ntax_year: row.cells[2].innerText,
+                    Cnotes: String(notevalues[i]),
+                    Nstatus: String(selectedValues[i])
                 };
                 selectedRows.push(rowData);
             i++;
@@ -333,8 +349,19 @@ var sampleData = {data:[
          executeJob(url, selectedRows, parameters).then(response => console.log(response))
     }
 
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
+            // Show the spinner
+            document.getElementById('spinner').style.display = 'block';
 
+            // Simulate data processing with a timeout
+            setTimeout(function() {
+                // Hide the spinner after processing
+                document.getElementById('spinner').style.display = 'none';
+                alert('Data processed successfully!');
+            }, 3000); // Simulate a 3-second processing time
+        });
 
 </script>
 
