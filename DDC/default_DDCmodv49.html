@@ -114,14 +114,30 @@ var sampleData = {data:[
                 results = evt.data;
                 columnInfo = evt.data.columns;
                 
-                evt.data.columns.push({"name":"bi998","label":"add_notes","type":"string","class":"additional-info"});
-                evt.data.columns.push({"name":"bi997","label":"add_status","type":"string"});
+                evt.data.columns.push({"name":"bi901","label":"add_notes","type":"string","class":"additional-info"});
+                evt.data.columns.push({"name":"bi902","label":"add_status","type":"string"});
                 
             }
             else if (evt.data.availableRowCount == -1) {
                 results = sampleData;
                 columnInfo = sampleColumnInfo;
             }
+
+          function getLabelByName(columns, name) {
+                for (let x of columns) {
+                    if (x.name === name) {
+                        return x.label;
+                    }
+                }
+                return null; // Return null if the column is not found
+            }
+
+            // Example usage
+            var label1 = getLabelByName(evt.data.columns, "bi901");
+            var label2 = getLabelByName(evt.data.columns, "bi902");
+
+            console.log("Label for bi901:", label1); // Output: add_notes
+            console.log("Label for bi902:", label2); // Output: add_status
 
             if(results) {
                 jsonToTable(columnInfo, results.data);
@@ -306,17 +322,13 @@ var sampleData = {data:[
             const selectedRows = []; //this is var1, var2, etc
             const checkboxes = document.querySelectorAll('.row-select:checked');
             let i = 0;
-            let var1 = "Company";
-            let var2 = "Tax Year";
-            let var3 = "Agent Comment";
-            let var4 = "Agent Rating";
             checkboxes.forEach(checkbox => {
                 const row = checkbox.closest('tr');
                 const rowData = {
-                    var1: row.cells[1].innerText,
-                    var2: row.cells[2].innerText,
-                    var3: String(notevalues[i]),
-                    var4: String(selectedValues[i])
+                    Ccompany: row.cells[1].innerText,
+                    Ntax_year: row.cells[2].innerText,
+                    Cagent_comment: String(notevalues[i]),
+                    Nagent_rating: String(selectedValues[i])
                 };
                 selectedRows.push(rowData);
             i++;
