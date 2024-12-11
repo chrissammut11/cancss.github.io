@@ -356,12 +356,11 @@ var sampleData = {data:[
             checkboxes.forEach(checkbox => {
                 const row = checkbox.closest('tr');
                 const radioButtons = row.querySelectorAll('input[type="radio"]');
-                        let selectedLanguage = '';
+                        const selectedLanguage = [];
                         radioButtons.forEach(radio => {
                             if (radio.checked) {
-                                selectedLanguage = radio.value;
-                                console.log("radio="+radio);
-                                console.log("Lang="+selectedLanguage);
+                                selectedLanguage[i] = radio.value;
+                                console.log("Lang"+i+" is "+selectedLanguage[i]);
                             }
                         });
                 const rowData = {
@@ -369,7 +368,7 @@ var sampleData = {data:[
                     , Ntax_year: row.cells[2].innerText
                     , Cnotes: String(notevalues[i])
                     , Nstatus: String(selectedValues[i])
-                    , Clanguage: row.cells[5].value
+                    , Clanguage: String(selectedLanguage[i])
                 };
                 selectedRows.push(rowData);
             i++;
