@@ -293,25 +293,25 @@ var sampleData = {data:[
             // Create the French radio button
             var radioButtonFrench = document.createElement('input');
             radioButtonFrench.type = 'radio';
-            radioButtonFrench.setAttribute('id', 'radioFrench' + addDataRow.rowNum);
-            radioButtonFrench.setAttribute('name', 'language' + addDataRow.rowNum);
+            radioButtonFrench.setAttribute('id', 'radioFrench');
+            radioButtonFrench.setAttribute('name', 'language');
             radioButtonFrench.setAttribute('value', 'French');
 
             // Create the label for the French radio button
             var labelFrench = document.createElement('label');
-            labelFrench.setAttribute('for', 'radioFrench' + addDataRow.rowNum);
+            labelFrench.setAttribute('for', 'radioFrench');
             labelFrench.textContent = 'French';
 
             // Create the English radio button
             var radioButtonEnglish = document.createElement('input');
             radioButtonEnglish.type = 'radio';
-            radioButtonEnglish.setAttribute('id', 'radioEnglish' + addDataRow.rowNum);
-            radioButtonEnglish.setAttribute('name', 'language' + addDataRow.rowNum);
+            radioButtonEnglish.setAttribute('id', 'radioEnglish');
+            radioButtonEnglish.setAttribute('name', 'language');
             radioButtonEnglish.setAttribute('value', 'English');
 
             // Create the label for the English radio button
             var labelEnglish = document.createElement('label');
-            labelEnglish.setAttribute('for', 'radioEnglish' + addDataRow.rowNum);
+            labelEnglish.setAttribute('for', 'radioEnglish');
             labelEnglish.textContent = 'English';
 
             // Create a table cell and append the radio buttons and their labels
@@ -360,17 +360,20 @@ var sampleData = {data:[
                     Ccompany: row.cells[1].innerText,
                     Ntax_year: row.cells[2].innerText,
                     Cnotes: String(notevalues[i]),
-                    Nstatus: String(selectedValues[i])
+                    Nstatus: String(selectedValues[i]),
+                    Clang: row.cells[5].innerText
                 };
                 selectedRows.push(rowData);
             i++;
             });
 
-            const url = "https://canada.viya4.sasdemo.ca" //this is the url of the viya server
-            const parameters = {
-            "_program": "/Public/ChrisS/CRA/save_data_from_VA",
-            } //this is the path and the name of the sas job definition
-         executeJob(url, selectedRows, parameters).then(response => console.log(response))
+            console.log("the Selected Rows are = "+selectedRows);
+
+        //     const url = "https://canada.viya4.sasdemo.ca" //this is the url of the viya server
+        //     const parameters = {
+        //     "_program": "/Public/ChrisS/CRA/save_data_from_VA",
+        //     } //this is the path and the name of the sas job definition
+        //  executeJob(url, selectedRows, parameters).then(response => console.log(response))
     }
 
 document.getElementById('myForm').addEventListener('submit', function(event) {
