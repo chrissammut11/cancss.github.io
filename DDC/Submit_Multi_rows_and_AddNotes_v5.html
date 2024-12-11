@@ -369,10 +369,11 @@ var sampleData = {data:[
                     Nstatus: String(selectedValues[i]),
                     Clanguage: selectedLanguage
                 };
+            console.log("last lang = "+selectedLanguage);
+
                 selectedRows.push(rowData);
             i++;
             });
-            console.log("last lang = "+selectedLanguage);
             console.log("the Selected Rows are = "+selectedRows);
 
         //     const url = "https://canada.viya4.sasdemo.ca" //this is the url of the viya server
