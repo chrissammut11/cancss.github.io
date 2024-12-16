@@ -1,9 +1,9 @@
 %let server = https://canada.viya4.sasdemo.ca;
 %let jobpath = %str(/Public/ChrisS/CRA/save_data_from_VA_v3);
-/* %let gitpath = %str(C:\Users\cancss\OneDrive - SAS\Documents\GitHub\cancss.github.io\DDC); */
+%let gitpath = %str(/export/canada/homes/chris.s/GitHub_Projects/DDC); 
 
 data _null_;
-file "&gitpath.\Submit_Multi_rows_and_AddNotesV3_v6.html";
+file "&gitpath./ZZZ.html";
 
 	put "<!doctype html>";
 	put "<html>";
