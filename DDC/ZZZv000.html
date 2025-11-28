@@ -1,16 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<title>SAS Visual Analytics Custom Data Table</title>
+  <meta charset="utf-8">
+  <title>SAS Visual Analytics Custom Data Table</title>
+  <!-- Load the VA components bundle. Use "defer" so custom elements are defined before parsing body. -->
+  <script defer src="https://cdn.developer.sas.com/packages/va-report-components/latest/dist/umd/va-report-components.js"></script>
+</head>
 <body>
-<script async src="https://cdn.developer.sas.com/packages/va-report-components/latest/dist/umd/va-report-components.js">
-</script>  
-  THIS IS TEXT OF HTML
+  <p>THIS IS TEXT OF HTML</p>
 
-<sas-report
-  authenticationType="guest"
-  url="https://cisviya.sas.com"
-  reportUri="/reports/reports/736c93ef-5da4-47a3-b666-892ceb0a60e3"
-></sas-report>  
-</body> 
-</html> 
+  <!-- Container for the SAS report element -->
+  <sas-report
+    authenticationType="guest"
+    url="https://cisviya.sas.com"
+    reportUri="/reports/reports/736c93ef-5da4-47a3-b666-892ceb0a60e3"
+  ></sas-report>
+
+</body>
+</html>
+
