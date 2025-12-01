@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@sassoftware/va-report-components": "^2.28.0"
+  }
+}

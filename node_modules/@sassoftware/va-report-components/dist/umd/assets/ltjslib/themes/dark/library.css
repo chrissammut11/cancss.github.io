@@ -1,0 +1,280 @@
+.brandColorChanges {
+  brandcolor: '';
+  neutralcolor: hsl(219, 12%, 64%);
+  newprimary: hsl(212, 94%, 62%);
+  secondarycolor: hsl(329,60%,40%);
+  p: hsl(212, 94%, 62%);
+}
+
+.sasPopover {
+    position: fixed;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    display: flex;
+}
+
+.sasTooltipContainer {
+    padding: 0.875rem;
+    color: var(--custom-tip-text-color, var(--standard-fg, hsl(219, 12%, 88%)));
+    background: var(--custom-tip-bg-color, var(--background-depth-standard-bg, hsl(219, 12%, 17%)));
+    position: relative;
+    z-index: 1;
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.sasPopover {
+    transition: opacity 0.2s linear;
+}
+
+.sasTipFooter {
+    padding: 1rem 0;
+    background: var(--custom-tip-bg-color, var(--background-depth-standard-bg, hsl(219, 12%, 17%)));
+    color: var(--custom-tip-text-color, var(--standard-fg, hsl(219, 12%, 88%)));
+    font-size: var(--custom-tip-font-size, 0.875rem);
+    font-family: var(--custom-tip-font-family, 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol');
+    font-weight: var(--custom-tip-font-weight,400);
+    text-align: center;
+}
+
+.sasPopoverContent {
+    border: 1px solid var(--standard-bd, hsl(219, 12%, 30%));
+    border-radius: 3px;
+    background: var(--custom-tip-bg-color, var(--background-depth-standard-bg,hsl(219, 12%, 17%)));
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.sasTooltip table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+.sasTooltipTableLong table,
+.sasTooltipTableExtraLong table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.sasTooltipTableLong .sasTipValue {
+    white-space: normal;
+}
+
+.sasTooltip td {
+    white-space: nowrap;
+    padding: 0;
+}
+
+.sasTooltipTableLong td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sasTooltipTableExtraLong td {
+    word-break:break-all;
+    white-space: normal;
+}
+
+.sasTooltip {
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.sasInvisible {
+    display: none !important;
+}
+
+.sasArrowContainer {
+    height: calc(0.7rem - 1px); /* The arrow should overlap the padding. */
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.sasPositionLeft .sasArrowContainer,
+.sasPositionRight .sasArrowContainer {
+    height: auto;
+    width: calc(0.7rem - 1px); /* The arrow should overlap the padding. */
+}
+
+.sasPositionLeft .sasArrowContainer {
+    order: 2;
+}
+
+.sasPopoverArrow {
+    left: 50%;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--custom-tip-bg-color, var(--background-depth-standard-bg, hsl(219, 12%, 17%)));
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid var(--standard-bd, hsl(219, 12%, 30%));
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    -webkit-transform: translateY(-50%) rotate(45deg) translateX(-50%);
+    transform: translateY(-50%) rotate(45deg) translateX(-50%);
+}
+
+html[dir=rtl] .sasPopoverArrow {
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    left: auto;
+    right: 50%;
+}
+
+/* position arrow below popup */
+.sasPositionBottom .sasPopoverArrow {
+    top: 0.7rem;
+}
+
+/* position arrow above popup */
+.sasPositionTop .sasPopoverArrow{
+    bottom: 0;
+}
+
+.sasPositionTop .sasArrowContainer,
+.sasPositionLeft .sasArrowContainer {
+    order: 2;
+}
+
+.sasPositionLeft,
+.sasPositionRight {
+    flex-direction: row;
+}
+
+.sasPositionLeft .sasPopoverArrow {
+    left: -1px;
+}
+
+.sasPositionRight .sasPopoverArrow {
+    left: .7rem;
+}
+
+.sasTooltip {
+    color: var(--custom-tip-text-color, var(--standard-fg, hsl(219, 12%, 88%)));
+    font-size: var(--custom-tip-font-size, 0.875rem);
+    font-family: var(--custom-tip-font-family, 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol');
+}
+
+.sasTooltip .sasTipLabel {
+    padding-right: .563rem;
+    color: var(--custom-tip-text-color, var(--standard-fg, hsl(219, 12%, 88%)));
+    font-size: var(--custom-tip-font-size, 0.875rem);
+    font-family: var(--custom-tip-font-family, 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol');
+    font-weight: var(--custom-tip-font-weight400);
+}
+
+/* only set padding-right if there is a label/value pair. */
+.sasTooltip tr > td:only-child {
+    padding-right: 0;
+}
+
+/* Add padding to the bottom of all but the last row. */
+/* add padding to cell so padding is honored correctly. */
+.sasTooltip:only-child tr:not(:last-child) > td {
+    padding-bottom: .5rem;
+}
+
+/* multiple results tips */
+.sasTooltip tr > td {
+    padding-bottom: .5rem;
+}
+
+.sasTipTable:not(:first-child) {
+    padding-top: .5rem;
+    border-top: 1px solid var(--color-neutral-lt3, hsl(219, 12%, 30%));
+}
+
+.sasTipCallout {
+    stroke: var(--nova-text-color, hsl(219, 12%, 88%));
+    stroke-width: 1px;
+}
+
+.sasTipCalloutBackground {
+    stroke: var(--custom-tip-bg-color, var(--background-depth-standard-bg, hsl(219, 12%, 17%)));
+    opacity: 0.4;
+    stroke-width: 3px;
+}
+
+.sasTimePickMarker {
+    stroke: var(--nova-text-color, hsl(219, 12%, 88%));
+    fill: var(--nova-text-color, hsl(219, 12%, 88%));
+}
+
+.sasTimePickMarkerBackground {
+    stroke: var(--custom-tip-bg-color, var(--background-depth-standard-bg, hsl(219, 12%, 17%)));
+    opacity: 0.4;
+    fill:none;
+}
+
+.sasTooltip .sasTipValue {
+    color: var(--custom-tip-text-color, var(--standard-fg, hsl(219, 12%, 88%)));
+    font-size: var(--custom-tip-font-size, 0.875rem);
+    font-family: var(--custom-tip-font-family, 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol');
+    font-weight: var(--custom-tip-font-weight, 400);
+}
+
+.sasTooltip .sasTipSwatch {
+    margin-right: .563rem;
+    width: var(--custom-tip-font-size, 0.875rem);
+    height: 100%;
+    vertical-align: middle;
+}
+
+.sasZoomOverlayBase {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    align-items: center; 
+    justify-content: center;
+    display: flex;
+    left: 0;
+    top: 0;
+    background-color: var(--overlay-bg, hsl(219, 12%, 17%));
+}
+
+.sasZoomOverlayHidden {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    align-items: center; 
+    justify-content: center;
+    display: flex;
+    left: 0;
+    top: 0;
+    background-color: var(--overlay-bg, hsl(219, 12%, 17%));
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.sasZoomOverlayVisible {
+    position: absolute;
+    width: 100%; 
+    height: 100%; 
+    align-items: center; 
+    justify-content: center;
+    display: flex;
+    left: 0;
+    top: 0;
+    background-color: var(--overlay-bg, hsl(219, 12%, 17%));
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.sasZoomOverlayMessage {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 2rem;
+    padding: .5rem;
+    opacity: .8;
+    background-color: var(--overlay-message-bg, hsl(219, 12%, 17%));
+    color: var(--overlay-color, hsl(219, 12%, 88%));
+    border-color: var(--overlay-color, hsl(219, 12%, 30%));
+    font-family: var(--font-family, 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol');
+    font-size: var(--font-size, 0.875rem);
+}

@@ -1,0 +1,1 @@
+This is an invalid IMAGE file for unit testing only.

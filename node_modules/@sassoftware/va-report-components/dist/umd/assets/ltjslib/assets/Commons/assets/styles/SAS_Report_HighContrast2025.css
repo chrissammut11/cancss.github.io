@@ -1,0 +1,2118 @@
+.brandColorChanges {
+  brandcolor: '';
+  neutralcolor: #d7dae0;
+  newprimary: #abd1fc;
+  secondarycolor: #d35094;
+  p: #abd1fc;
+}
+
+* {
+  color: #ffffff;
+  font-size: 10.5pt;
+  text-decoration: none;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-style: normal;
+  wrap-text: normal;
+}
+
+:root {
+  --report-data-color-1: #61A8FA;
+  --report-data-color-2: #F98E39;
+  --report-data-color-3: #1FBBA9;
+  --report-data-color-4: #FF6FBD;
+  --report-data-color-5: #87B532;
+  --report-data-color-6: #C68AFF;
+  --report-data-color-7: #D6C539;
+  --report-data-color-8: #FF7973;
+  --report-background-color: #000000;
+  --report-text-color: #ffffff;
+  --report-primary-color: #abd1fc;
+  --report-neutral-color: #d7dae0;
+}
+
+.H1 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 34pt;
+  text-shadow: none;
+}
+
+h1 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 34pt;
+  text-shadow: none;
+}
+
+.H1alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 34pt;
+  text-shadow: none;
+}
+
+.H2 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 27pt;
+  text-shadow: none;
+}
+
+h2 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 27pt;
+  text-shadow: none;
+}
+
+.H2alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 27pt;
+  text-shadow: none;
+}
+
+.H3 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 21pt;
+  text-shadow: none;
+}
+
+h3 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 21pt;
+  text-shadow: none;
+}
+
+.H3alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 21pt;
+  text-shadow: none;
+}
+
+.H4 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 17pt;
+  text-shadow: none;
+}
+
+h4 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 17pt;
+  text-shadow: none;
+}
+
+.H4alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 17pt;
+  text-shadow: none;
+}
+
+.H5 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 11pt;
+  text-shadow: none;
+}
+
+h5 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 11pt;
+  text-shadow: none;
+}
+
+.H5alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 11pt;
+  text-shadow: none;
+}
+
+.H6 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 9pt;
+  text-shadow: none;
+}
+
+h6 {
+  color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 9pt;
+  text-shadow: none;
+}
+
+.H6alt {
+  color: #abd1fc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-size: 9pt;
+  text-shadow: none;
+}
+
+.Table {
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+  alt-row-color: #000000;
+  color: #ffffff;
+  row-color: #000000;
+  line-color: #ffffff;
+  vertical-line-style: solid;
+  horizontal-line-style: solid;
+  font-size: 9pt;
+  display-opts: plain;
+}
+
+Table .Header {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: bold;
+  font-size: 9pt;
+  line-color: #ffffff;
+}
+
+Table .Totals {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: 400;
+  font-size: 9pt;
+}
+
+Table .Table {
+  wrap-text: none;
+}
+
+Table .ScrollBar {
+  fill-color: #d7dae0;
+}
+
+Crosstab .Table {
+  border-color: #ffffff;
+  border-style: none;
+  border-width: 1px;
+  alt-row-color: #000000;
+  color: #ffffff;
+  row-color: #000000;
+  line-color: #ffffff;
+  vertical-line-style: solid;
+  horizontal-line-style: solid;
+  font-size: 9pt;
+  display-opts: plain;
+}
+
+Crosstab .Header {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: bold;
+  line-color: #ffffff;
+  font-size: 9pt;
+}
+
+.RowHeader {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.MeasureHeader {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.ColumnHeader {
+  line-color: #ffffff;
+}
+
+Crosstab .ScrollBar {
+  fill-color: #d7dae0;
+}
+
+Crosstab .Totals {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+Crosstab .Subtotals {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.Totals {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.Subtotals {
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 9pt;
+}
+
+.Graph {
+  attribute-priority: none;
+  data-style-reference: remapped;
+}
+
+.GraphDataStyle1 {
+  color: #61A8FA;
+  fill-color: #61A8FA;
+  alt-color: #9cc9fc;
+  line-color: #9cc9fc;
+  marker-color: #9cc9fc;
+  fill-pattern-color: #000000;
+  text-color: #9cc9fc;
+  line-style: 1;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  fill-pattern: E;
+}
+
+.GraphDataStyle2 {
+  color: #F98E39;
+  fill-color: #F98E39;
+  alt-color: #fbb174;
+  line-color: #fbb174;
+  marker-color: #fbb174;
+  fill-pattern-color: #000000;
+  text-color: #fbb174;
+  line-style: 4;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+  fill-pattern: L1;
+}
+
+.GraphDataStyle3 {
+  color: #1FBBA9;
+  fill-color: #1FBBA9;
+  alt-color: #3adfcc;
+  line-color: #3adfcc;
+  marker-color: #3adfcc;
+  fill-pattern-color: #000000;
+  text-color: #3adfcc;
+  line-style: 8;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: trianglefilled;
+  fill-pattern: X1;
+}
+
+.GraphDataStyle4 {
+  color: #FF6FBD;
+  fill-color: #FF6FBD;
+  alt-color: #ffadd9;
+  line-color: #ffadd9;
+  marker-color: #ffadd9;
+  fill-pattern-color: #000000;
+  text-color: #ffadd9;
+  line-style: 5;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: diamondfilled;
+  fill-pattern: R4;
+}
+
+.GraphDataStyle5 {
+  color: #87B532;
+  fill-color: #87B532;
+  alt-color: #a4d053;
+  line-color: #a4d053;
+  marker-color: #a4d053;
+  fill-pattern-color: #000000;
+  text-color: #a4d053;
+  line-style: 14;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: starfilled;
+  fill-pattern: X3;
+}
+
+.GraphDataStyle6 {
+  color: #C68AFF;
+  fill-color: #C68AFF;
+  alt-color: #e4c7ff;
+  line-color: #e4c7ff;
+  marker-color: #e4c7ff;
+  fill-pattern-color: #000000;
+  text-color: #e4c7ff;
+  line-style: 26;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: triangledownfilled;
+  fill-pattern: R3;
+}
+
+.GraphDataStyle7 {
+  color: #D6C539;
+  fill-color: #D6C539;
+  alt-color: #e1d56b;
+  line-color: #e1d56b;
+  marker-color: #e1d56b;
+  fill-pattern-color: #000000;
+  text-color: #e1d56b;
+  line-style: 15;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: homedownfilled;
+  fill-pattern: L5;
+}
+
+.GraphDataStyle8 {
+  color: #FF7973;
+  fill-color: #FF7973;
+  alt-color: #ffb6b3;
+  line-color: #ffb6b3;
+  marker-color: #ffb6b3;
+  fill-pattern-color: #000000;
+  text-color: #ffb6b3;
+  line-style: 20;
+  line-thickness: 5px;
+  fill-pattern: R1;
+}
+
+.GraphDataStyle9 {
+  line-style: 41;
+  line-thickness: 5px;
+  fill-pattern: X5;
+}
+
+.GraphDataStyle10 {
+  line-style: 42;
+  line-thickness: 5px;
+  fill-pattern: L4;
+}
+
+.GraphDataStyle11 {
+  line-style: 2;
+  line-thickness: 5px;
+  fill-pattern: X4;
+}
+
+.GraphDataNode1 {
+  color: #bfdcfd;
+  fill-color: #bfdcfd;
+  alt-color: #9cc9fc;
+  text-color: #000000;
+  line-color: #9cc9fc;
+}
+
+.GraphDataNode2 {
+  color: #fdd1af;
+  fill-color: #fdd1af;
+  alt-color: #fbb174;
+  text-color: #000000;
+  line-color: #fbb174;
+}
+
+.GraphDataNode3 {
+  color: #a5e4dd;
+  fill-color: #a5e4dd;
+  alt-color: #3adfcc;
+  text-color: #000000;
+  line-color: #3adfcc;
+}
+
+.GraphDataNode4 {
+  color: #ffc7e6;
+  fill-color: #ffc7e6;
+  alt-color: #ffadd9;
+  text-color: #000000;
+  line-color: #ffadd9;
+}
+
+.GraphDataNode5 {
+  color: #cfe1ad;
+  fill-color: #cfe1ad;
+  alt-color: #a4d053;
+  text-color: #000000;
+  line-color: #a4d053;
+}
+
+.GraphDataNode6 {
+  color: #e9d1ff;
+  fill-color: #e9d1ff;
+  alt-color: #e4c7ff;
+  text-color: #000000;
+  line-color: #e4c7ff;
+}
+
+.GraphDataNode7 {
+  color: #efe7af;
+  fill-color: #efe7af;
+  alt-color: #e1d56b;
+  text-color: #000000;
+  line-color: #e1d56b;
+}
+
+.GraphDataNode8 {
+  color: #ffc9c7;
+  fill-color: #ffc9c7;
+  alt-color: #ffb6b3;
+  text-color: #000000;
+  line-color: #ffb6b3;
+}
+
+.GraphDataStyleDefault {
+  color: #61A8FA;
+  fill-color: #61A8FA;
+  alt-color: #9cc9fc;
+  line-color: #9cc9fc;
+  marker-color: #9cc9fc;
+  fill-pattern-color: #000000;
+  text-color: #9cc9fc;
+  fill-gradient-start-color: #61A8FA;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #F98E39;
+  line-style: 1;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  fill-pattern: E;
+}
+
+.KPIRange1 {
+  color: #FF6464;
+  fill-color: #FF6464;
+  alt-color: #ffa3a3;
+  line-color: #ffa3a3;
+  marker-color: #ffa3a3;
+  fill-pattern-color: #000000;
+  text-color: #ffa3a3;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: R3;
+}
+
+.KPIRange2 {
+  color: #eaa362;
+  fill-color: #eaa362;
+  alt-color: #f1c398;
+  line-color: #f1c398;
+  marker-color: #f1c398;
+  fill-pattern-color: #000000;
+  text-color: #f1c398;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: L1;
+}
+
+.KPIRange3 {
+  color: #EBE447;
+  fill-color: #EBE447;
+  alt-color: #f1eb7e;
+  line-color: #f1eb7e;
+  marker-color: #f1eb7e;
+  fill-pattern-color: #000000;
+  text-color: #f1eb7e;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: R4;
+}
+
+.KPIRange4 {
+  color: #a4d468;
+  fill-color: #a4d468;
+  alt-color: #c0e298;
+  line-color: #c0e298;
+  marker-color: #c0e298;
+  fill-pattern-color: #000000;
+  text-color: #c0e298;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: X1;
+}
+
+.KPIRange5 {
+  color: #63C568;
+  fill-color: #63C568;
+  alt-color: #8fd693;
+  line-color: #8fd693;
+  marker-color: #8fd693;
+  fill-pattern-color: #000000;
+  text-color: #8fd693;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: X3;
+}
+
+.KPIOverflow {
+  color: #75cc7a;
+  fill-color: #75cc7a;
+  alt-color: #a2dda5;
+  line-color: #a2dda5;
+  marker-color: #a2dda5;
+  fill-pattern-color: #000000;
+  text-color: #a2dda5;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: R2;
+}
+
+.KPIUnderflow {
+  color: #ff8080;
+  fill-color: #ff8080;
+  alt-color: #ffbdbd;
+  line-color: #ffbdbd;
+  marker-color: #ffbdbd;
+  fill-pattern-color: #000000;
+  text-color: #ffbdbd;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: L2;
+}
+
+.Overflow {
+  color: #B381f5;
+  fill-color: #B381f5;
+  alt-color: #d4b8f9;
+  line-color: #d4b8f9;
+  marker-color: #d4b8f9;
+  fill-pattern-color: #000000;
+  text-color: #d4b8f9;
+  marker-size: 16px;
+  marker-symbol: triangleupfilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: R2;
+}
+
+.Underflow {
+  color: #71E4DA;
+  fill-color: #71E4DA;
+  alt-color: #a5eee8;
+  line-color: #a5eee8;
+  marker-color: #a5eee8;
+  fill-pattern-color: #000000;
+  text-color: #a5eee8;
+  marker-size: 16px;
+  marker-symbol: triangledownfilled;
+  line-style: 1;
+  line-thickness: 5px;
+  fill-pattern: L2;
+}
+
+.Initial {
+  color: #bababa;
+  fill-color: #bababa;
+  alt-color: #d9d9d9;
+  line-color: #d9d9d9;
+  marker-color: #d9d9d9;
+  fill-pattern-color: #000000;
+  text-color: #dddfe4;
+  line-style: 1;
+  line-thickness: 3px;
+  marker-size: 16px;
+  marker-symbol: trianglerightfilled;
+  fill-pattern: X4;
+}
+
+.Final {
+  color: #bababa;
+  fill-color: #bababa;
+  alt-color: #d9d9d9;
+  line-color: #d9d9d9;
+  marker-color: #d9d9d9;
+  fill-pattern-color: #000000;
+  text-color: #dddfe4;
+  line-style: 1;
+  line-thickness: 3px;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+  fill-pattern: X1;
+}
+
+.Other {
+  color: #9c9c9c;
+  fill-color: #9c9c9c;
+  alt-color: #bababa;
+  line-color: #bababa;
+  marker-color: #bababa;
+  fill-pattern-color: #000000;
+  text-color: #bababa;
+  marker-size: 16px;
+  marker-symbol: asterisk;
+  line-style: 34;
+  line-thickness: 5px;
+  fill-pattern: X2;
+}
+
+.Outlier {
+  color: #cccccc;
+  fill-color: #cccccc;
+  alt-color: #ebebeb;
+  line-color: #ebebeb;
+  marker-color: #ebebeb;
+  text-color: #ebebeb;
+  fill-gradient-start-color: #f0f0f0;
+  fill-gradient-end-color: #8c8c8c;
+  line-style: 1;
+  line-thickness: 5px;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+}
+
+.BoxMedian {
+  alt-color: #f6f7f8;
+  line-color: #f6f7f8;
+  text-color: #f6f7f8;
+  line-style: 1;
+  line-thickness: 3px;
+}
+
+.BoxMean {
+  alt-color: #f6f7f8;
+  marker-color: #f6f7f8;
+  text-color: #f6f7f8;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+}
+
+.BoxWhisker {
+  alt-color: #cccccc;
+  line-color: #cccccc;
+  text-color: #cccccc;
+  line-style: 1;
+  line-thickness: 3px;
+}
+
+.Selection {
+  color: #000000;
+  fill-color: #000000;
+  alt-color: #ffffff;
+  line-color: #ffffff;
+  marker-color: #ffffff;
+  text-color: #ffffff;
+  line-thickness: 5px;
+  line-style: 1;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+}
+
+.Focus {
+  line-color: #ffffff;
+  line-thickness: 3px;
+  line-style: 2;
+  line-transparency: 0;
+  focus-background: true;
+}
+
+.FocusBackground {
+  line-color: #000000;
+  line-thickness: 5px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.Missing {
+  color: #595959;
+  fill-color: #595959;
+  alt-color: #787878;
+  line-color: #787878;
+  marker-color: #787878;
+  fill-pattern-color: #000000;
+  text-color: #787878;
+  marker-size: 16px;
+  marker-symbol: x;
+  line-style: 35;
+  line-thickness: 5px;
+  fill-pattern: R5;
+}
+
+.Box {
+  display-opts: caps median mean outliers fill fillpattern;
+  connect: mean;
+  cap-style: serif;
+}
+
+.Confidence {
+  color: #173d69;
+  fill-color: #173d69;
+  alt-color: #9cc9fc;
+  line-color: #9cc9fc;
+  marker-color: #9cc9fc;
+  fill-pattern-color: #000000;
+  text-color: #2e7ad1;
+  line-style: 1;
+  line-thickness: 1px;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  fill-pattern: E;
+}
+
+.Confidence2 {
+  color: #573114;
+  fill-color: #573114;
+  alt-color: #fbb174;
+  line-color: #fbb174;
+  marker-color: #fbb174;
+  fill-pattern-color: #000000;
+  text-color: #bf6b2b;
+  line-style: 4;
+  line-thickness: 1px;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+  fill-pattern: E;
+}
+
+.PredictionLimits {
+  color: #4e2871;
+  fill-color: #4e2871;
+  alt-color: #e4c7ff;
+  line-color: #e4c7ff;
+  marker-color: #e4c7ff;
+  fill-pattern-color: #000000;
+  text-color: #8e55c3;
+  line-style: 34;
+  line-thickness: 1px;
+  marker-size: 16px;
+  marker-symbol: trianglefilled;
+  fill-pattern: E;
+}
+
+.Error {
+  color: #adadad;
+  fill-color: #adadad;
+  alt-color: #cccccc;
+  line-color: #cccccc;
+  marker-color: #cccccc;
+  text-color: #cccccc;
+  marker-size: 16px;
+  marker-symbol: diamondfilled;
+  line-style: 5;
+  line-thickness: 5px;
+}
+
+.TwoColorRamp {
+  fill-gradient-start-color: #e7f2fe;
+  fill-gradient-end-color: #489bf9;
+}
+
+.TwoColorRamp1 {
+  fill-gradient-start-color: #e7f2fe;
+  fill-gradient-end-color: #489bf9;
+}
+
+.TwoColorRamp2 {
+  fill-gradient-start-color: #feeee1;
+  fill-gradient-end-color: #ff8f33;
+}
+
+.TwoColorRamp3 {
+  fill-gradient-start-color: #dbf5f1;
+  fill-gradient-end-color: #14c8b3;
+}
+
+.TwoColorRamp4 {
+  fill-gradient-start-color: #ffebf6;
+  fill-gradient-end-color: #ff70bc;
+}
+
+.TwoColorRamp5 {
+  fill-gradient-start-color: #eef4e1;
+  fill-gradient-end-color: #8ac026;
+}
+
+.TwoColorRamp6 {
+  fill-gradient-start-color: #f5ebff;
+  fill-gradient-end-color: #c68aff;
+}
+
+.TwoColorRamp7 {
+  fill-gradient-start-color: #f9f6e1;
+  fill-gradient-end-color: #e2d02c;
+}
+
+.TwoColorRamp8 {
+  fill-gradient-start-color: #ffeceb;
+  fill-gradient-end-color: #ff7c75;
+}
+
+.TwoColorRampOther {
+  fill-gradient-start-color: #f0f0f0;
+  fill-gradient-end-color: #8c8c8c;
+}
+
+.TwoColorAltRamp {
+  fill-gradient-start-color: #e7f2fe;
+  fill-gradient-end-color: #83bbfb;
+}
+
+.TwoColorAltRamp1 {
+  fill-gradient-start-color: #e7f2fe;
+  fill-gradient-end-color: #83bbfb;
+}
+
+.TwoColorAltRamp2 {
+  fill-gradient-start-color: #feeee1;
+  fill-gradient-end-color: #ffb070;
+}
+
+.TwoColorAltRamp3 {
+  fill-gradient-start-color: #dbf5f1;
+  fill-gradient-end-color: #2eead4;
+}
+
+.TwoColorAltRamp4 {
+  fill-gradient-start-color: #ffebf6;
+  fill-gradient-end-color: #ffadd9;
+}
+
+.TwoColorAltRamp5 {
+  fill-gradient-start-color: #eef4e1;
+  fill-gradient-end-color: #a7db48;
+}
+
+.TwoColorAltRamp6 {
+  fill-gradient-start-color: #f5ebff;
+  fill-gradient-end-color: #e4c7ff;
+}
+
+.TwoColorAltRamp7 {
+  fill-gradient-start-color: #f9f6e1;
+  fill-gradient-end-color: #eadc62;
+}
+
+.TwoColorAltRamp8 {
+  fill-gradient-start-color: #ffeceb;
+  fill-gradient-end-color: #ffb6b3;
+}
+
+.TwoColorAltRampOther {
+  fill-gradient-start-color: #f0f0f0;
+  fill-gradient-end-color: #a6a6a6;
+}
+
+.ThreeColorRamp {
+  fill-gradient-start-color: #61A8FA;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #F98E39;
+}
+
+.ThreeColorRamp1 {
+  fill-gradient-start-color: #61A8FA;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #F98E39;
+}
+
+.ThreeColorRamp2 {
+  fill-gradient-start-color: #1FBBA9;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #FF6FBD;
+}
+
+.ThreeColorRamp3 {
+  fill-gradient-start-color: #87B532;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #C68AFF;
+}
+
+.ThreeColorRamp4 {
+  fill-gradient-start-color: #D6C539;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #FF7973;
+}
+
+.ThreeColorRampKPI {
+  fill-gradient-start-color: #FF6464;
+  fill-gradient-neutral-color: #EBE447;
+  fill-gradient-end-color: #63C568;
+}
+
+.ThreeColorAltRamp {
+  fill-gradient-start-color: #9cc9fc;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #fbb174;
+}
+
+.ThreeColorAltRamp1 {
+  fill-gradient-start-color: #9cc9fc;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #fbb174;
+}
+
+.ThreeColorAltRamp2 {
+  fill-gradient-start-color: #3adfcc;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #ffadd9;
+}
+
+.ThreeColorAltRamp3 {
+  fill-gradient-start-color: #a4d053;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #e4c7ff;
+}
+
+.ThreeColorAltRamp4 {
+  fill-gradient-start-color: #e1d56b;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #ffb6b3;
+}
+
+.ThreeColorAltRampKPI {
+  fill-gradient-start-color: #ffa3a3;
+  fill-gradient-neutral-color: #f1eb7e;
+  fill-gradient-end-color: #8fd693;
+}
+
+.AxisLines {
+  line-thickness: 2dpx;
+  line-style: 1;
+  line-color: #ffffff;
+  tick-display: OUTSIDE;
+}
+
+.Reference {
+  alt-color: #ffffff;
+  line-color: #ffffff;
+  text-color: #ffffff;
+  marker-color: #ffffff;
+  line-thickness: 2dpx;
+  line-style: 1;
+}
+
+.GridLines {
+  line-thickness: 2dpx;
+  line-style: 2;
+  grid-layer: back;
+  line-transparency: 0;
+  line-color: #969696;
+}
+
+.Outlines {
+  line-thickness: 3px;
+  line-style: 1;
+  line-color: #000000;
+}
+
+.OutlinesUnfilled {
+  line-thickness: 3px;
+  line-style: 1;
+  line-color: #cccccc;
+}
+
+.BorderLines {
+  line-thickness: 2dpx;
+  line-style: 1;
+  line-color: #ffffff;
+}
+
+.Fit {
+  color: #8ab5e5;
+  fill-color: #8ab5e5;
+  alt-color: #2e7ad1;
+  line-color: #2e7ad1;
+  marker-color: #2e7ad1;
+  fill-pattern-color: #000000;
+  text-color: #2562a7;
+  line-style: 1;
+  line-thickness: 3px;
+  marker-size: 16px;
+  marker-symbol: circlefilled;
+  fill-pattern: E;
+}
+
+.Fit2 {
+  color: #de9d68;
+  fill-color: #de9d68;
+  alt-color: #b06427;
+  line-color: #b06427;
+  marker-color: #b06427;
+  fill-pattern-color: #000000;
+  text-color: #864c1d;
+  line-style: 4;
+  line-thickness: 3px;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+  fill-pattern: E;
+}
+
+.Prediction {
+  color: #d0adf0;
+  fill-color: #d0adf0;
+  alt-color: #994de0;
+  line-color: #994de0;
+  marker-color: #994de0;
+  text-color: #8025d4;
+  line-style: 34;
+  line-thickness: 3px;
+  marker-size: 16px;
+  marker-symbol: squarefilled;
+}
+
+.ConnectLine {
+  line-thickness: 3px;
+  line-style: 1;
+  line-color: #cccccc;
+}
+
+.TitleText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #ffffff;
+  font-weight: 400;
+  font-size: 13.5pt;
+}
+
+.FootnoteText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #ffffff;
+  font-weight: 400;
+  font-size: 10.5pt;
+}
+
+.DataText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #f6f7f8;
+  font-weight: 400;
+  font-size: 8.25pt;
+}
+
+.KeyText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #9cc9fc;
+  font-weight: 400;
+  font-size: 21pt;
+}
+
+.KeyOutline {
+  line-thickness: 12px;
+  line-color: #61A8FA;
+}
+
+.LabelText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #ffffff;
+  font-weight: bold;
+  font-size: 10.5pt;
+}
+
+.ValueText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  text-color: #c6cad2;
+  font-weight: 400;
+  font-size: 9pt;
+}
+
+.KPIRangeText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  font-weight: 400;
+  text-color: #f6f7f8;
+  font-size: 9pt;
+  alt-text-color: #070709;
+}
+
+.KPIValueText {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  font-weight: 400;
+  text-color: #c6cad2;
+  font-size: 9pt;
+  alt-text-color: #2d3139;
+}
+
+.BackFill {
+  fill-color: #000000;
+  frame-border: false;
+}
+
+.WallFill {
+  line-thickness: 2dpx;
+  fill-color: #000000;
+  line-style: 1;
+  line-color: #ffffff;
+  fill-transparency: 0;
+  line-transparency: 0;
+  display-opts: none;
+}
+
+.LegendFill {
+  fill-color: #000000;
+  frame-border: false;
+}
+
+.InsideLegendFill {
+    fill-color: #000000;
+    frame-border: true;
+    title-border: true;
+}
+
+.HeaderFill {
+  fill-color: #000000;
+}
+
+.Block {
+  color: #000000;
+  fill-color: #000000;
+}
+
+.AltBlock {
+  color: #000000;
+  fill-color: #000000;
+}
+
+.LayoutGlobalLegend {
+  data-matrix-align: begin;
+  data-matrix-align-to: wall;
+  lattice-align: begin;
+  overlay-align: begin;
+  overlay-align-to: wall;
+  region-align: begin;
+}
+
+.GraphSkin {
+  data-skin: none;
+  kpi-skin: none;
+  blend-start-color: #ffffff;
+  blend-start-color-factor: 0;
+  blend-end-color: #ffffff;
+  blend-end-color-factor: 0.3;
+  blend-mode: normal;
+  glow-thickness: 1px;
+  glow-blur: 0;
+  glow-color-factor: -0.9;
+  glow-color: #ffffff;
+}
+
+.ZoomScrollbarThumb {
+  color: #000000;
+}
+
+.ZoomScrollbarEndHandle {
+  color: #d7dae0;
+  line-color: #d7dae0;
+}
+
+.OverviewAxis {
+  line-thickness: 2dpx;
+  line-color: #ffffff;
+}
+
+.OverviewAxisFilter {
+  color: #000000;
+  fill-color: #000000;
+  transparency: 0.5;
+}
+
+.Increase {
+  color: #63C568;
+  fill-color: #63C568;
+  alt-color: #8fd693;
+  line-color: #8fd693;
+  marker-color: #8fd693;
+  fill-pattern-color: #000000;
+  text-color: #8fd693;
+  marker-symbol: triangleupfilled;
+  line-style: 1;
+  line-thickness: 3px;
+  fill-pattern: R2;
+}
+
+.Decrease {
+  color: #FF6464;
+  fill-color: #FF6464;
+  alt-color: #ffa3a3;
+  line-color: #ffa3a3;
+  marker-color: #ffa3a3;
+  fill-pattern-color: #000000;
+  text-color: #ffa3a3;
+  marker-symbol: triangledownfilled;
+  line-style: 1;
+  line-thickness: 3px;
+  fill-pattern: L1;
+}
+
+.GraphDataNodeDefault {
+  color: #d6d6d6;
+  fill-color: #d6d6d6;
+  alt-color: #c2c2c2;
+  line-color: #c2c2c2;
+  fill-pattern-color: #000000;
+  text-color: #000000;
+  line-thickness: 3px;
+  fill-pattern: E;
+  fill-gradient-start-color: #61A8FA;
+  fill-gradient-neutral-color: #ffffff;
+  fill-gradient-end-color: #F98E39;
+}
+
+.NodeTitle {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 9pt;
+  font-style: normal;
+  font-weight: bold;
+  text-color: #000000;
+}
+
+.NodeLabel {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 10.5pt;
+  font-style: normal;
+  font-weight: 400;
+  text-color: #ffffff;
+}
+
+.NodeInputLabel {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 10.5pt;
+  font-style: normal;
+  font-weight: 400;
+  text-color: #ffffff;
+}
+
+.NodeDetails {
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 7.5pt;
+  font-style: normal;
+  font-weight: 400;
+  text-color: #000000;
+}
+
+.NodeGroupOpen {
+  line-color: #cccccc;
+  text-color: #cccccc;
+  fill-color: #000000;
+  transparency: 0;
+  line-thickness: 3px;
+}
+
+.NodeGroupClosed {
+  line-color: #cccccc;
+  text-color: #cccccc;
+  fill-color: #000000;
+  transparency: 0;
+  line-thickness: 3px;
+}
+
+.NodeGroupTitle {
+  text-color: #cccccc;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10.5pt;
+}
+
+.NodeWindowGroupContentArea {
+  fill-color: #000000;
+  fill-transparency: 0.2;
+}
+
+.TipText {
+  text-color: #ffffff;
+}
+
+.TipFill {
+  fill-color: #000000;
+  transparency: 0;
+}
+
+.NodeLink {
+  color: #8c8c8c;
+  fill-color: #8c8c8c;
+  alt-color: #b5b5b5;
+  line-color: #b5b5b5;
+  marker-color: #b5b5b5;
+  line-style: 1;
+  line-thickness: 5px;
+}
+
+.CrossoverNodeLink {
+  alt-color: #b0b0b0;
+  line-color: #b0b0b0;
+  line-style: 2;
+  line-thickness: 5px;
+  line-transparency: 0;
+}
+
+.OverviewFill {
+  transparency: 0;
+  fill-color: #000000;
+}
+
+.OverviewBorderLines {
+  line-thickness: 2dpx;
+  transparency: 0;
+  line-color: #ffffff;
+}
+
+.OverviewFilterFill {
+  fill-color: #000000;
+  transparency: 0.5;
+}
+
+.OverviewViewportBorderLines {
+  line-thickness: 2dpx;
+  transparency: 0;
+  line-color: #4398f9;
+}
+
+.Pie {
+  donut: true;
+  gap: 1dpx;
+  min-hole-size: 0.15;
+  ring-size: 0.3;
+  display-opts: outline fill pieheader fillpattern;
+}
+
+.CalloutLine {
+  line-transparency: 0;
+  line-style: 1;
+  line-thickness: 2dpx;
+  line-color: #ffffff;
+}
+
+.CellSeparatorLines {
+  line-color: #b5b5b5;
+  line-style: 1;
+  line-thickness: 2dpx;
+}
+
+.DiscreteAxis {
+  display-opts: tickvalues ticks line label;
+  grid-display: false;
+}
+
+.LinearAxis {
+  display-opts: tickvalues label;
+  grid-display: true;
+}
+
+.LogAxis {
+  display-opts: tickvalues label;
+  grid-display: true;
+}
+
+.TimeAxis {
+  display-opts: tickvalues label;
+  grid-display: true;
+}
+
+.Icicle {
+  gap: 1dpx;
+  display-opts: outline fill fillpattern;
+}
+
+.Mosaic {
+  gap: 1dpx;
+  display-opts: outline fill labels values;
+}
+
+.TreeMap {
+  gap: 1dpx;
+  display-opts: statustext datalabel;
+}
+
+.LayoutDataMatrix {
+  cell-separator: true;
+  matrix-border: false;
+}
+
+.LayoutLattice {
+  confine-tick-values: true;
+}
+
+.LayoutDataPanel {
+  confine-tick-values: true;
+}
+
+.LayoutOverlay {
+  yaxis-label-position: top;
+}
+
+.ContinuousLegend {
+  frame-border: false;
+  title-halign: left;
+  title-position: top;
+  title-separator-top: true;
+}
+
+.DiscreteLegend {
+  frame-border: false;
+  title-halign: left;
+  title-position: top;
+  title-separator-top: true;
+}
+
+.SizeLegend {
+  frame-border: false;
+  title-halign: left;
+  title-position: top;
+  title-separator-top: true;
+}
+
+.DataMatrixBorderLines {
+  line-thickness: 2dpx;
+  line-style: 1;
+  line-color: #ffffff;
+}
+
+.TargetNode {
+  fill-color: #343942;
+  text-color: #000000;
+  line-color: #9cc9fc;
+  line-thickness: 3px;
+  line-style: 1;
+}
+
+.HyperLink {
+  text-color: #c6cad2;
+}
+
+.Dropzone {
+  fill-color: #0551a8;
+  line-color: #4398f9;
+  line-style: 1;
+  line-thickness: 2px;
+  transparency: 0.5;
+}
+
+.StatusBackground {
+  fill-color: #000000;
+}
+
+.StatusError {
+  text-color: #ffb3b3;
+}
+
+.StatusWarning {
+  text-color: #fae4ad;
+}
+
+.StatusComplete {
+  text-color: #c0e8c2;
+}
+
+.StatusInformation {
+  text-color: #abd1fc;
+}
+
+.StatusMediumPriority {
+  text-color: #fae4ad;
+}
+
+.StatusProgress {
+  text-color: #abd1fc;
+}
+
+.StatusClustered {
+  text-color: #abd1fc;
+}
+
+.StatusImportant {
+  text-color: #ffb3b3;
+}
+
+.StatusIncompleteInProgress {
+  text-color: #abd1fc;
+}
+
+.StatusIncomplete {
+  text-color: #ffb3b3;
+}
+
+.StatusLocked {
+  text-color: #ffffff;
+}
+
+.StatusNeutral {
+  text-color: #ffffff;
+}
+
+.StatusStopped {
+  text-color: #ffb3b3;
+}
+
+.StatusStopping {
+  text-color: #ffb3b3;
+}
+
+.StatusScheduled {
+  text-color: #abd1fc;
+}
+
+.IconNodeBackground {
+  fill-color: #000000;
+}
+
+.IconNodeStart {
+  text-color: #c0e8c2;
+}
+
+.IconNodeEnd {
+  text-color: #ffb3b3;
+}
+
+.IconNodeTimer {
+  text-color: #abd1fc;
+}
+
+.IconNodeGatewayInclusive {
+  text-color: #abd1fc;
+}
+
+.IconNodeGatewayExclusive {
+  text-color: #abd1fc;
+}
+
+.AnimatedProgressIndicator {
+  text-color: #abd1fc;
+}
+
+.Band {
+  display-opts: outline;
+}
+
+.AnimationControlPanel {
+  fill-color: #000000;
+  line-color: #ffffff;
+  frame-border: true;
+}
+
+.GraphSlider {
+  bar-line-color-top: #ffffff;
+  bar-fill-color: #000000;
+  bar-line-color-bottom: #ffffff;
+  thumb-fill-color-donut: #000000;
+  thumb-fill-color-center: #d864a0;
+  thumb-line-color: #ffffff;
+}
+
+.GraphMenu {
+  background-color: #000000;
+  background-color-selected: #ffffff;
+  border-color: #ffffff;
+  text-color-selected: #484f5b;
+}
+
+.AnnoLine {
+  alt-color: #ffffff;
+  text-color: #c6cad2;
+  line-color: #ffffff;
+  line-style: 1;
+  line-thickness: 3px;
+}
+
+.AnnoText {
+  text-color: #c6cad2;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 9pt;
+}
+
+.AnnoShape {
+  color: #000000;
+  alt-color: #ffffff;
+  fill-color: #000000;
+  text-color: #c6cad2;
+  line-color: #ffffff;
+  line-style: 1;
+  line-thickness: 2px;
+  marker-color: #c6cad2;
+  marker-symbol: Starfilled;
+  marker-size: 16px;
+}
+
+.GaugeIndicator {
+  line-transparency: 0.4;
+  fill-color: #000000;
+  line-color: #ffffff;
+}
+
+.ThinLine {
+  line-thickness: 3px;
+  line-style: 1;
+  line-color: #1a73db;
+}
+
+.Bar {
+  display-opts: outline fill fillpattern;
+}
+
+.Bubble {
+  bubble-size-min: 11px;
+  bubble-size-max: 44px;
+  display-opts: outline fill fillpattern;
+}
+
+.DecisionTree {
+  display-opts: nodefill nodeoutline nodefillpattern;
+}
+
+.Ellipse {
+  display-opts: outline;
+}
+
+.HeatMap {
+  display-opts: fill fillpattern;
+}
+
+.HighLow {
+  display-opts: outline fill fillpattern;
+}
+
+.Histogram {
+  display-opts: outline fill fillpattern;
+}
+
+.LineChart {
+  display-opts: standard;
+}
+
+.Sankey {
+  display-opts: volumnebars volume labels volumebarfillpattern;
+}
+
+.Scatter {
+  marker-size-min: 11px;
+  marker-size-max: 44px;
+}
+
+.Schedule {
+  display-opts: outline fill fillpattern;
+}
+
+.Series {
+  line-thickness-min: 4px;
+  line-thickness-max: 10px;
+  display-opts: standard;
+}
+
+.TimeSeries {
+  display-opts: standard;
+}
+
+.Waterfall {
+  display-opts: fill finalbar outline connect fillpattern;
+}
+
+.Network {
+  display-opts: nodeoutline nodefill nodefillpattern;
+}
+
+.Basemap {
+  tile-set: HighContrast;
+}
+
+.Overplotting {
+  min-marker-size-grouped: 8px;
+  min-marker-size-ungrouped: 6px;
+}
+
+.KeyFrameValue {
+  text-color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 28pt;
+  fit-width: 42%;
+  font-style: normal;
+  font-weight: bold;
+  text-transparency: 0;
+  padding: 3%;
+  horizontal-alignment: right;
+  vertical-alignment: bottom;
+}
+
+.OutlinesNode {
+  line-color: #5e6778;
+}
+
+.OutlinesPerimeter {
+  line-color: #000000;
+  line-style: 1;
+  line-thickness: 3px;
+  line-transparency: 0;
+}
+
+.OverlayDataInset {
+  inset-size: 64px;
+  inset-aspect-ratio: 1;
+  inset-size-min: 35px;
+  inset-size-max: 140px;
+}
+
+.InsetPie {
+  inset-size: 64px;
+  inset-aspect-ratio: 1;
+  inset-size-min: 35px;
+  inset-size-max: 140px;
+  other-slice-percent: 10;
+  ring-size: 0.4;
+}
+
+.MapRegionLayer {
+  display-opts: fill fillpattern outline;
+}
+
+.GeoRouteMainPath {
+  line-color: #ffffff;
+  line-thickness: 10px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.GeoRouteCenterPath {
+  line-color: #000000;
+  line-thickness: 3px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.GeoRoutePathInnerPerimeter {
+  line-color: #121417;
+  line-thickness: 1px;
+  line-style: solid;
+  line-transparency: 0;
+}
+
+.GeoRoutePathOuterPerimeter {
+  line-color: #000000;
+  line-thickness: 1px;
+  line-style: 1;
+  line-transparency: 0.6;
+}
+
+.GeoRoutePathSelection {
+  line-color: #ffffff;
+  line-thickness: 4px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.GeoRoutePathHover {
+  line-color: #ffffff;
+  line-thickness: 4px;
+  line-style: 1;
+  line-transparency: 0.4;
+}
+
+.GeoRoutePathOuterPerimeterInverse {
+  line-color: #000000;
+  line-thickness: 0;
+  line-style: 1;
+  line-transparency: 1;
+}
+
+.GeoRoutePathFocus {
+  line-color: #0664d0;
+  line-thickness: 4px;
+  line-style: 2;
+  line-transparency: 0;
+}
+
+.GeoRoutePathFocusPerimeter {
+  line-color: #000000;
+  line-thickness: 5px;
+  line-style: solid;
+  line-transparency: 1;
+}
+
+.GeoRoutePoint {
+  pin-style: highContrast;
+  pin-color: #ffffff;
+}
+
+.GeoRoutePointLabel {
+  text-color: #ffffff;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: bold;
+  font-size: 7.5pt;
+  font-style: normal;
+}
+
+.GeoPin {
+  pin-style: highContrast;
+  pin-color: #ffffff;
+}
+
+.GeoPinLabel {
+  text-color: #000000;
+  font-family: 'Anova UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: bold;
+  font-size: 10.5pt;
+  font-style: normal;
+}
+
+.GeoPinIcon {
+  text-color: #000000;
+  font-family: sas-icons;
+  font-weight: 400;
+  font-size: 12pt;
+  font-style: normal;
+}
+
+.GeoSearchPin {
+  pin-style: highContrast;
+  pin-color: #c6cad2;
+}
+
+.GeoCentroidPoint {
+  pin-style: highContrast;
+  pin-color: #ffffff;
+}
+
+.GeoArea {
+  fill-color: #ffffff;
+  fill-transparency: 0.8;
+  line-color: #ffffff;
+  line-thickness: 2px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.GeoAreaOuterPerimeter {
+  line-color: #000000;
+  line-thickness: 1px;
+  line-style: 1;
+  line-transparency: 0.6;
+}
+
+.GeoAreaOuterHover {
+  line-color: #ffffff;
+  line-thickness: 4px;
+  line-style: 1;
+  line-transparency: 0.4;
+}
+
+.GeoAreaOuterPerimeterInverse {
+  line-color: #000000;
+  line-thickness: 0;
+  line-style: 1;
+  line-transparency: 1;
+}
+
+.GeoAreaSelection {
+  line-color: #ffffff;
+  line-thickness: 2px;
+  line-style: 2;
+  line-transparency: 0;
+}
+
+.GeoAreaOuterSelection {
+  line-color: #ffffff;
+  line-thickness: 4px;
+  line-style: 1;
+  line-transparency: 0;
+}
+
+.GeoAreaFocus {
+  line-color: #0664d0;
+  line-thickness: 4px;
+  line-style: 34;
+  line-transparency: 0;
+}
+
+.GeoAreaFocusPerimeter {
+  line-color: #000000;
+  line-thickness: 5px;
+  line-style: solid;
+  line-transparency: 1;
+}
+
+.GeoAreaInnerPerimeter {
+  line-color: #000000;
+  line-thickness: 0;
+  line-style: 1;
+  line-transparency: 1;
+}
+
+.GeoAreaInnerPerimeterThick {
+  line-color: #ffffff;
+  line-thickness: 0;
+  line-style: 1;
+  line-transparency: 1;
+}
+
+.GeoRegionEmpty {
+  fill-color: #000000;
+  fill-transparency: 0;
+  fill-pattern: E;
+  line-color: #595959;
+  line-transparency: 0;
+  line-style: 1;
+  line-thickness: 5px;
+}
+
+.GeoRegionContext {
+  fill-color: #000000;
+  fill-transparency: 0;
+  fill-pattern: E;
+  line-color: #595959;
+  line-transparency: 0;
+  line-style: 1;
+  line-thickness: 5px;
+}
+
+/**
+ * The following are the default styles for the report. These styles are applied
+ * to the report if no other styles are specified.
+ */
+
+.Report {
+  background-color: #000000;
+  theme: highcontrast2020;
+}
+
+.TitleStyle {
+  font-size: 13.5pt;
+  color: #ffffff;
+}
+
+.PromptBar {
+  background-color: #000000;
+}
+
+.Container {
+  background-color: #000000;
+  transparency: 1;
+  border-color: #ffffff;
+  border-width: 0;
+  border-top-color: #ffffff;
+  border-top-style: solid;
+  border-top-width: 0;
+  border-right-color: #ffffff;
+  border-right-style: solid;
+  border-right-width: 0;
+  border-bottom-color: #ffffff;
+  border-bottom-style: solid;
+  border-bottom-width: 0;
+  border-left-color: #ffffff;
+  border-left-style: solid;
+  border-left-width: 0;
+}
+
+.VisualPromptContainer {
+  background-color: #000000;
+}
+
+.ComboBox {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10.5pt;
+}
+
+.CheckBoxList {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10.5pt;
+}
+
+.SliderUI5 {
+  bar-line-color-top: #ffffff;
+  bar-fill-color: #abd1fc;
+  bar-line-color-bottom: #ffffff;
+  thumb-fill-color-donut: #000000;
+  thumb-fill-color-center: #abd1fc;
+  thumb-line-color: #ffffff;
+}
+
+.ButtonBar {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: normal;
+  selected-background-color: #ffffff;
+  selected-color: #484f5b;
+  font-size: 10.5pt;
+}
+
+.StackContainer {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: normal;
+  selected-background-color: #ffffff;
+  selected-color: #484f5b;
+  border-color: #ffffff;
+}
+
+.RadioButton {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 10.5pt;
+}
+
+.HyperLink {}
+
+.HyperLinkVisited {}
+
+.Hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.Selected {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+
+.ReportPagePadding {
+  padding: 16px;
+}
+
+.ReportElementContainer {
+  padding: 16px;
+}
+
+.TextInput {
+  color: #ffffff;
+  font-size: 10.5pt;
+  background-color: #000000;
+}
+
+.TextStyle {
+  font-size: 10.5pt;
+}
