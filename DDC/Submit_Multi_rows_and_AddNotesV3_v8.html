@@ -271,9 +271,9 @@ var sampleData = {data:[
             inputbox.type = 'text';
             inputbox.setAttribute('id', 'text'+addDataRow.rowNum);
 
-            // var inputboxCell = document.createElement('td');
-            // inputboxCell.appendChild(inputbox);
-            // tr.appendChild(inputboxCell);
+            var inputboxCell = document.createElement('td');
+            inputboxCell.appendChild(inputbox);
+            tr.appendChild(inputboxCell);
 
             // var selectbox = document.createElement('select');
             // selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
