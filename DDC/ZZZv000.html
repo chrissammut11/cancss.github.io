@@ -1,8 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<title>SAS Visual Analytics Custom Data Table</title>
-  <script type="text/javascript" src="util/messagingUtil.js"></script>
+  <meta charset="utf-8">
+  <title>SAS Visual Analytics Custom Data Table</title>
+  <!-- Load the VA components bundle. Use "defer" so custom elements are defined before parsing body. -->
+  <script defer src="https://cdn.developer.sas.com/packages/va-report-components/latest/dist/umd/va-report-components.js"></script>
+</head>
 <body>
-</body> 
-</html> 
+  <p>THIS IS TEXT OF HTML</p>
+
+  <!-- Container for the SAS report element -->
+<sas-report
+  authenticationType="credentials"
+  url="https://canada.viya4.sasdemo.ca"
+  reportUri="/reports/reports/ab42ce54-3fda-4f9c-9cb5-6c48f711935e"
+></sas-report>
+  
+</body>
+</html>
+
