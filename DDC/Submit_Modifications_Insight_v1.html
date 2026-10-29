@@ -266,29 +266,29 @@ var sampleData = {data:[
                 tr.appendChild(td);
             });
 
-            //Add your own input/select elements and text below here
-            var selectbox = document.createElement('select');
-            selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
+            ///Add your own input/select elements and text below here
+            //var selectbox = document.createElement('select');
+            //selectbox.setAttribute('id', 'select' + addDataRow.rowNum);
 
-            //code to add options to the selectbox element
-            var options = [' ','NO', 'YES']; //these will be the numeric values passed
-            var optionArray = ['--select--','NO','YES']; //these are the options displayed
-            options.forEach(function(optionText, index) {
-            var option = document.createElement('option');
+            ///code to add options to the selectbox element
+            //var options = [' ','NO', 'YES']; //these will be the numeric values passed
+            //var optionArray = ['--select--','NO','YES']; //these are the options displayed
+            //options.forEach(function(optionText, index) {
+            //var option = document.createElement('option');
             // option.value = optionText.toLowerCase().replace(' ', '-');
-            option.text = optionArray[index]; //optionText-this was the default;
+            //option.text = optionArray[index]; //optionText-this was the default;
 
                 // Default selection
-               if (optionText === "YES") {
-                    option.selected = true;
-                    }
+               //if (optionText === "YES") {
+               //     option.selected = true;
+               //     }
 
-            selectbox.appendChild(option);
-            });
+            //selectbox.appendChild(option);
+            //});
 
-            var selectboxCell = document.createElement('td');
-            selectboxCell.appendChild(selectbox);
-            tr.appendChild(selectboxCell);
+            //var selectboxCell = document.createElement('td');
+            //selectboxCell.appendChild(selectbox);
+            //tr.appendChild(selectboxCell);
 
             var inputbox = document.createElement('input');
             inputbox.type = 'text';
