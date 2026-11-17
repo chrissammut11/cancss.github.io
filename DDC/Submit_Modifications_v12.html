@@ -294,11 +294,13 @@ var sampleData = {data:[
             inputbox.type = 'text';
             inputbox.style.textAlign = 'right';
             inputbox.setAttribute('id', 'text'+addDataRow.rowNum);
-            if (dataFields[3] === null || dataFields[3] === undefined) {
-                inputbox.value = ''; // Set to empty string if the value is null or undefined
-            } else {
+            if (typeof dataFields[3] === "number" && Number.isFinite(dataFields[3])) {   // Do number/decimal operations
                 inputbox.value = String(dataFields[3].toFixed(0)); //this is the default value for the input box, it is set to the numeric value in column 4 of the data table
+            } else {
+                // Do something else
+                inputbox.value = ''; // Set to empty string if the value is null or undefined
             }
+
             //inputbox.value = String(dataFields[3].toFixed(0)); //this is the default value for the input box, it is set to the numeric value in column 4 of the data table
 
             var inputboxCell = document.createElement('td');
